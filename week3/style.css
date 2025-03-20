@@ -1,0 +1,55 @@
+body {
+  background-color: beige;
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+
+h1 {
+  color: red;
+  font-size: 2rem;
+  line-height: 3rem;
+  font-family: "Teko", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h2 {
+  color: green;
+  font-size: 1.8rem;
+  line-height: 3rem;
+
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h3 {
+  color: brown;
+  font-size: 1.3rem;
+  line-height: 2rem;
+}
+.blue-color {
+  color: blue;
+}
+
+section {
+  text-align: center;
+  border: 1px solid red;
+}
+
+#outcome {
+  color: yellowgreen;
+  border: 4px dashed brown;
+}
+/* 
+Curly Brackets {} grouping
+Square Brackets [] js
+Round Brackers () js 
+parantheses < > html
+semicolon ; end a line 
+colon : property declaration
+syntax : rules of a long
+hypen - to connect words
+        * universal selector
+*/
