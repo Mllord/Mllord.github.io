@@ -15,7 +15,7 @@ let trail = [];
 
 // Event listener for mouse movement
 window.addEventListener("mousemove", (e) => {
-  // Move the custom cursor to the mouse position
+  // Move the cursor to the mouse position
   // Offsets ensure that the cursor is centered around the mouse pointer
   cursor.style.left = `${e.clientX}px`;
   cursor.style.top = `${e.clientY}px`;

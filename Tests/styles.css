@@ -1,18 +1,22 @@
 * {
   cursor: none; /* Hide default cursor */
+  font-family: "Encode Sans Expanded", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 body {
-  background-color: #708d93; /* Dark background for visibility */
+  background-color: #708d93; /* Colour picked from the original website */
   color: white;
   margin: 0;
 }
 
+/* replaces the cursor with a small circle */
 .cursor {
   position: fixed;
   width: 4px;
   height: 4px;
-  border: 1px solid white; /* White to match the website  */
+  border: 1px solid white;
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%); /* Center the cursor */

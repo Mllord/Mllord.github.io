@@ -1,0 +1,33 @@
+body {
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 0 auto; /*horizontal centering */
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  width: 400px;
+  margin: 5rem;
+  padding: 1rem;
+  /* min-height: 100px; */
+  /* height: 200px; */
+  /* border: 1px solid teal; */
+  margin: 0 auto;
+  border-bottom: 2px dashed salmon;
+  background-color: aliceblue;
+}
+
+.vcenter {
+  line-height: 200px;
+  /* height - top padding - bottom padding  */
+  /* 200 - 20 - 20 = 160 */
+}
+
+.titlecolor {
+  color: cadetblue;
+}
