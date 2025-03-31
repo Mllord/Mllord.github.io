@@ -1,0 +1,97 @@
+* {
+  cursor: none;
+  /* Hide default cursor */
+  font-family: "Encode Sans Expanded", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+body {
+  background-color: #708d93; /* Colour picked from the original website */
+  color: white;
+  margin: 0;
+}
+
+/* replaces the cursor with a small circle */
+.cursor {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  border: 1px solid white;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%); /* Center the cursor */
+}
+
+/* Used for the trail */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+h1 {
+  padding-top: 22.5rem;
+  padding-bottom: 5rem;
+  text-align: right;
+  margin: auto;
+  max-width: 1000px;
+  justify-content: right;
+}
+
+p {
+  padding-top: 20px;
+  text-align: justify;
+  margin: auto;
+  max-width: 500px;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  align-items: stretch;
+  line-height: 0.8rem;
+}
+
+.M {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  top: 0;
+  padding-top: 0;
+
+  font-size: 200px;
+  font-family: "Radio Canada", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  transform: translate(-10%, -22%);
+}
+
+.N {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  bottom: 0;
+  padding-top: 0;
+
+  font-size: 200px;
+  font-family: "Radio Canada", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  transform: translate(-11%, 21%);
+}
+
+.plus {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  font-size: 5rem;
+}
