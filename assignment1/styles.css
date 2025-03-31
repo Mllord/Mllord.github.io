@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #708d93; /* Colour picked from the original website */
+  background-color: #151a1b; /* Colour picked from the original website #708d93*/
   color: white;
   margin: 0;
 }
@@ -35,12 +35,36 @@ canvas {
 }
 
 h1 {
-  padding-top: 22.5rem;
+  padding-top: 22rem;
   padding-bottom: 5rem;
   text-align: right;
   margin: auto;
   max-width: 1000px;
   justify-content: right;
+}
+
+h4 {
+  padding-top: 20px;
+  text-align: justify;
+  margin: auto;
+  max-width: 500px;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  align-items: stretch;
+  line-height: 0.9rem;
+}
+
+li {
+  padding-top: 20px;
+  text-align: justify;
+  margin: auto;
+  max-width: 500px;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  align-items: stretch;
+  line-height: 0.9rem;
 }
 
 p {
@@ -50,9 +74,9 @@ p {
   max-width: 500px;
   justify-content: center;
   text-transform: uppercase;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   align-items: stretch;
-  line-height: 0.8rem;
+  line-height: 0.9rem;
 }
 
 .M {
@@ -63,7 +87,7 @@ p {
   top: 0;
   padding-top: 0;
 
-  font-size: 200px;
+  font-size: 15rem;
   font-family: "Radio Canada", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
@@ -80,7 +104,7 @@ p {
   bottom: 0;
   padding-top: 0;
 
-  font-size: 200px;
+  font-size: 15rem;
   font-family: "Radio Canada", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
@@ -94,4 +118,52 @@ p {
   right: 0;
   bottom: 0;
   font-size: 5rem;
+}
+
+#VideoBG {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -100;
+  opacity: 60%;
+}
+
+.T1 {
+  position: fixed;
+  right: 5%;
+  bottom: 45%;
+  transform: rotate(90deg);
+  font-size: 3rem;
+  font-family: "Encode Sans Expanded", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.T2 {
+  position: fixed;
+  left: 5%;
+  bottom: 45%;
+  transform: rotate(270deg);
+  font-size: 3rem;
+  font-family: "Encode Sans Expanded", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.top2 {
+  color: white;
+
+  position: fixed;
+  right: 6%;
+  bottom: 5%;
+  transform: rotate(270deg);
+  font-size: 3rem;
+  font-family: "Encode Sans Expanded", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  text-transform: uppercase;
 }
