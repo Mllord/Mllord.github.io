@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #151a1b; /* Colour picked from the original website #708d93*/
+  background-color: #151a1b; /* Colour picked from the original website #708d93 then darkened for legibility*/
   color: white;
   margin: 0;
 }
@@ -33,7 +33,7 @@ canvas {
   height: 100vh;
   pointer-events: none;
 }
-
+/* Heading 1 Alignment and spacing */
 h1 {
   padding-top: 22rem;
   padding-bottom: 5rem;
@@ -42,7 +42,7 @@ h1 {
   max-width: 1000px;
   justify-content: right;
 }
-
+/* heading 4 alignment and spacing */
 h4 {
   padding-top: 20px;
   text-align: justify;
@@ -54,7 +54,7 @@ h4 {
   align-items: stretch;
   line-height: 0.9rem;
 }
-
+/* Alignment for lists */
 li {
   padding-top: 20px;
   text-align: justify;
@@ -66,7 +66,7 @@ li {
   align-items: stretch;
   line-height: 0.9rem;
 }
-
+/* paragraph alignment and spacing */
 p {
   padding-top: 20px;
   text-align: justify;
@@ -78,7 +78,7 @@ p {
   align-items: stretch;
   line-height: 0.9rem;
 }
-
+/* used to postion the Big M and add font */
 .M {
   position: fixed;
   display: flex;
@@ -95,7 +95,7 @@ p {
   font-variation-settings: "wdth" 100;
   transform: translate(-10%, -22%);
 }
-
+/* used to postion the Big N and add font */
 .N {
   position: fixed;
   display: flex;
@@ -112,24 +112,18 @@ p {
   font-variation-settings: "wdth" 100;
   transform: translate(-11%, 21%);
 }
-
-.plus {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  font-size: 5rem;
-}
-
+/* used to keep video as background */
 #VideoBG {
   position: fixed;
   right: 0;
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
+  /* Z is used so text shows infront of the video as the Z is the third axis */
   z-index: -100;
   opacity: 60%;
 }
-
+/* T is used to emulate the shapes that overlay the original website */
 .T1 {
   position: fixed;
   right: 5%;
@@ -141,7 +135,7 @@ p {
   font-style: normal;
   text-transform: uppercase;
 }
-
+/* T is used to emulate the shapes that overlay the original website */
 .T2 {
   position: fixed;
   left: 5%;
@@ -153,7 +147,7 @@ p {
   font-style: normal;
   text-transform: uppercase;
 }
-
+/* Used to position the Arrow that scrolls to top of website */
 .top2 {
   color: white;
 
