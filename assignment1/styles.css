@@ -13,6 +13,16 @@ body {
   margin: 0;
 }
 
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  max-width: 50rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: auto;
+}
+
 /* replaces the cursor with a small circle */
 .cursor {
   position: fixed;
@@ -44,19 +54,19 @@ h1 {
 }
 /* heading 4 alignment and spacing */
 h4 {
-  padding-top: 20px;
+  padding-top: 2rem;
   text-align: justify;
   margin: auto;
-  max-width: 500px;
+  max-width: 10rem;
   justify-content: center;
   text-transform: uppercase;
   font-size: 0.9rem;
-  align-items: stretch;
+  align-items: center;
   line-height: 0.9rem;
 }
 /* Alignment for lists */
 li {
-  padding-top: 20px;
+  padding-top: 0.5rem;
   text-align: justify;
   margin: auto;
   max-width: 500px;
@@ -65,10 +75,11 @@ li {
   font-size: 0.8rem;
   align-items: stretch;
   line-height: 0.9rem;
+  padding-bottom: 0;
 }
 /* paragraph alignment and spacing */
 p {
-  padding-top: 20px;
+  padding-top: 2rem;
   text-align: justify;
   margin: auto;
   max-width: 500px;
@@ -78,6 +89,24 @@ p {
   align-items: stretch;
   line-height: 0.9rem;
 }
+
+.Q9 {
+  padding-top: 2rem;
+  text-align: justify;
+  margin: auto;
+  max-width: 500px;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  align-items: stretch;
+  line-height: 0.9rem;
+}
+
+.Qend {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 /* used to postion the Big M and add font */
 .M {
   position: fixed;
@@ -87,7 +116,7 @@ p {
   top: 0;
   padding-top: 0;
 
-  font-size: 15rem;
+  font-size: 13rem;
   font-family: "Radio Canada", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
@@ -104,7 +133,7 @@ p {
   bottom: 0;
   padding-top: 0;
 
-  font-size: 15rem;
+  font-size: 13rem;
   font-family: "Radio Canada", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
@@ -160,4 +189,8 @@ p {
   font-weight: 100;
   font-style: normal;
   text-transform: uppercase;
+}
+
+.Endspace {
+  padding-bottom: 20rem;
 }
