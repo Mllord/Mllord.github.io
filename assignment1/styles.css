@@ -4,7 +4,7 @@
   font-family: "Encode Sans Expanded", sans-serif;
   font-weight: 400;
   font-style: normal;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 body {
@@ -51,18 +51,20 @@ h1 {
   margin: auto;
   max-width: 1000px;
   justify-content: right;
+  font-size: 1.5rem;
 }
 /* heading 4 alignment and spacing */
 h4 {
   padding-top: 2rem;
-  text-align: justify;
+  /* text-align: justify; */
   margin: auto;
   max-width: 10rem;
-  justify-content: center;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  align-items: center;
-  line-height: 0.9rem;
+  /* justify-content: flex-start; */
+  align-content: flex-start;
+  /* text-transform: uppercase; */
+  font-size: 1.2rem;
+  /* align-items: flex-start; */
+  line-height: 1.4rem;
 }
 /* Alignment for lists */
 li {
@@ -71,10 +73,10 @@ li {
   margin: auto;
   max-width: 500px;
   justify-content: center;
-  text-transform: uppercase;
-  font-size: 0.8rem;
+  /* text-transform: uppercase; */
+  font-size: 1.2rem;
   align-items: stretch;
-  line-height: 0.9rem;
+  line-height: 1.4rem;
   padding-bottom: 0;
 }
 /* paragraph alignment and spacing */
@@ -84,19 +86,25 @@ p {
   margin: auto;
   max-width: 500px;
   justify-content: center;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  align-items: stretch;
-  line-height: 0.9rem;
+  /* text-transform: uppercase; */
+  font-size: 1.2rem;
+  /* align-items: stretch; */
+  line-height: 1.4rem;
 }
 
+/* Removes dots from list */
+ul {
+  list-style: none;
+}
+
+/* alignment of specifically question 9 */
 .Q9 {
   padding-top: 2rem;
   text-align: justify;
   margin: auto;
   max-width: 500px;
   justify-content: center;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-size: 0.8rem;
   align-items: stretch;
   line-height: 0.9rem;
@@ -144,13 +152,12 @@ p {
 /* used to keep video as background */
 #VideoBG {
   position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
+  margin: auto;
+  min-width: 1920px;
+  min-height: 1080px;
   /* Z is used so text shows infront of the video as the Z is the third axis */
   z-index: -100;
-  opacity: 60%;
+  opacity: 50%;
 }
 /* T is used to emulate the shapes that overlay the original website */
 .T1 {
