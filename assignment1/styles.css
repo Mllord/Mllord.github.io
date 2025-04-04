@@ -12,7 +12,7 @@ body {
   color: white;
   margin: 0;
 }
-
+/* flex box container to organize paragraphs */
 .container {
   display: flex;
   flex-direction: row-reverse;
@@ -197,7 +197,7 @@ ul {
   font-style: normal;
   text-transform: uppercase;
 }
-
+/* spacing at the bottom of the page */
 .Endspace {
   padding-bottom: 20rem;
 }

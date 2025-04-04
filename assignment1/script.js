@@ -1,3 +1,5 @@
+// I am aware this is not part of the grade i just did it for my own personal fun
+
 // Select the cursor element with the class "cursor"
 const cursor = document.querySelector(".cursor");
 console.log("Checkpoint1");
