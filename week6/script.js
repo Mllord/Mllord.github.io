@@ -81,3 +81,14 @@ function handleClick() {
   console.log("Hey did you just click me");
   cat.classList.toggle("round");
 }
+
+cat.addEventListener("mouseenter", addme);
+cat.addEventListener("mouseleave", removeme);
+
+function addme() {
+  cat.classList.add("round");
+}
+
+function removeme() {
+  cat.classList.remove("round");
+}
