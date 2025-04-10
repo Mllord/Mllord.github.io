@@ -1,0 +1,11 @@
+* {
+  padding: 0.5rem;
+}
+
+img {
+  display: block;
+}
+
+.round {
+  border-radius: 50%;
+}
