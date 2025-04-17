@@ -1,0 +1,27 @@
+audio {
+  display: block;
+  margin-bottom: 1.2rem;
+}
+
+h1 {
+  border: 2px solid cornflowerblue;
+  border-radius: 1.2rem;
+  border-width: 2px;
+  font-size: 2rem;
+}
+
+button {
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  border-radius: 0.8rem;
+  margin-right: 0.8rem;
+  cursor: pointer;
+}
+
+button:hover {
+  scale: 0.9;
+}
+
+video {
+  width: 800px;
+}
