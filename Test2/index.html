@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- linking the favicon icons for the website -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <!-- Font Linking  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Css and Java script linking -->
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Assignment 2 Music Player</title>
+  </head>
+  <body>
+    <main id="container">
+      <video
+        src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/miac.mp4"
+        muted
+        id="bgv"
+      ></video>
+
+      <div id="top-menu">
+        <h1><span id="artist">ARTIST</span> <span id="name">NAME</span></h1>
+        <div id="nav">
+          <a href="">Bio</a>
+          <a href="">Music</a>
+          <a href="">Shop</a>
+          <a href="">About</a>
+          <a href="credits.html">Credits</a>
+          <a href="">Icons</a>
+        </div>
+      </div>
+      <h2 id="title">
+        TOTALLY COOL MUSIC <br />
+        VIDEO NAME
+      </h2>
+      <button id="like-btn">
+        <img
+          id="like-img"
+          src="https://img.icons8.com/ios-filled/50/facebook-like.png"
+          alt="Like Button"
+          width="24"
+          height="24"
+        />
+        <span id="likes"></span>
+      </button>
+
+      <div id="line"></div>
+      <div class="media-player">
+        <video id="custom-video-player" controls>
+          <source
+            src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/miac.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div class="custom-controls">
+          <button id="play-pause-btn" onclick="togglePlayPause()">
+            <img
+              id="play-pause-img"
+              src="https://img.icons8.com/ios-glyphs/30/play--v1.png"
+              alt="Play Button"
+              width="24"
+              height="24"
+            />
+          </button>
+          <!-- add the missing buttons or functionality here -->
+
+          <div class="progress-bar">
+            <span id="progress-bar-fill"></span>
+          </div>
+          <button id="fullscreen-btn" onclick="toggleFullScreen()">
+            <img
+              width="35"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/full-screen--v1.png"
+              alt="full-screen--v1"
+            />
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
