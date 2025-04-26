@@ -3,32 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- add the font family of your choice -->
+    <!-- linking the favicon icons for the website -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <!-- Font Linking  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Css and Java script linking -->
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
+    <title>Assignment 2 Music Player</title>
   </head>
   <body>
-    <!-- Header Section -->
-    <header>
-      <h1>Media Player Website</h1>
-    </header>
+    <main id="container">
+      <video
+        src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/miac.mp4"
+        muted
+        id="bgv"
+      ></video>
 
-    <!-- Navigation Section -->
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Videos</a></li>
-        <li><a href="#">Music</a></li>
-        <li><a href="#">Playlists</a></li>
-        <!-- Add or remove navigation items as needed -->
-      </ul>
-    </nav>
+      <div id="top-menu">
+        <h1><span id="artist">ARTIST</span> <span id="name">NAME</span></h1>
+        <div id="nav">
+          <a href="">Bio</a>
+          <a href="">Music</a>
+          <a href="">Shop</a>
+          <a href="">About</a>
+          <a href="credits.html">Credits</a>
+          <a href="">Icons</a>
+        </div>
+      </div>
+      <h2 id="title">
+        TOTALLY COOL MUSIC <br />
+        VIDEO NAME
+      </h2>
+      <button id="like-btn">
+        <img
+          id="like-img"
+          src="https://img.icons8.com/ios-filled/50/facebook-like.png"
+          alt="Like Button"
+          width="24"
+          height="24"
+        />
+        <span id="likes"></span>
+      </button>
 
-    <!-- Main Content Section -->
-    <main class="container">
-      <!-- Media Player Section -->
+      <div id="line"></div>
       <div class="media-player">
         <video id="custom-video-player" controls>
           <source
@@ -47,27 +73,20 @@
             />
           </button>
           <!-- add the missing buttons or functionality here -->
+
           <div class="progress-bar">
             <span id="progress-bar-fill"></span>
           </div>
+          <button id="fullscreen-btn" onclick="toggleFullScreen()">
+            <img
+              width="35"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/full-screen--v1.png"
+              alt="full-screen--v1"
+            />
+          </button>
         </div>
       </div>
-
-      <!-- Additional Content Section -->
-      <section>
-        <h2>Additional Content</h2>
-        <p>This is where you can showcase any other relevant content.</p>
-        <!-- Add more content as needed -->
-      </section>
     </main>
-
-    <!-- Footer Section -->
-    <footer>
-      <p>&copy; 2024 Media Player Website. All rights reserved.</p>
-      <a href="https://icons8.com/icon/59862/play">Play</a> icon by
-      <a href="https://icons8.com">Icons8</a>
-      <a href="https://icons8.com/icon/61012/pause">Pause</a> icon by
-      <a href="https://icons8.com">Icons8</a>
-    </footer>
   </body>
 </html>
