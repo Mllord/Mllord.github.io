@@ -10,19 +10,20 @@ const likeButton = document.querySelector("#like-btn");
 const likes = document.querySelector("#likes");
 
 video.removeAttribute("controls");
-// playPauseBtn.addEventListener("click", togglePlayPause);
+playPauseBtn.addEventListener("click", togglePlayPause);
 video.addEventListener("timeupdate", updateProgressBar);
 function togglePlayPause() {
   if (video.paused || video.ended) {
     video.play();
     bgvideo.play();
-    playPauseImg.src = "https://img.icons8.com/ios-glyphs/30/pause--v1.png";
+    playPauseImg.src = "https://img.icons8.com/ios/50/pause--v1.png";
     title.classList.add("fade");
     line.classList.add("fade");
   } else {
     video.pause();
     bgvideo.pause();
-    playPauseImg.src = "https://img.icons8.com/ios-glyphs/30/play--v1.png";
+    playPauseImg.src =
+      "https://img.icons8.com/fluency-systems-regular/48/play--v1.png";
     title.classList.remove("fade");
     line.classList.remove("fade");
   }
@@ -34,6 +35,7 @@ function updateProgressBar() {
 // Add other functionalities here
 //-----------------------------------------------------------------
 // Enables the functioning of the fullscreen button in addition to ensuring functionality across multiple browers
+fullscreen.addEventListener("click", toggleFullScreen);
 function toggleFullScreen() {
   if (!document.fullscreenElement) {
     if (video.requestFullscreen) {

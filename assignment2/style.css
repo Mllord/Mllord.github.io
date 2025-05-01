@@ -1,3 +1,4 @@
+/* Custom colouring */
 :root {
   --primary-bg-color: #f4f4f4;
   --text-color: #333;
@@ -7,6 +8,7 @@
   /* #93898914 */
 }
 
+/* Base font application */
 * {
   font-family: "Encode Sans", sans-serif;
   font-optical-sizing: auto;
@@ -15,18 +17,41 @@
   font-variation-settings: "wdth" 100;
 }
 
+/* main body styling  */
 body {
   background-color: #333;
   height: 100%;
   overflow-y: hidden;
 }
 
+#body2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--primary-bg-color);
+}
+
+footer {
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--primary-bg-color);
+}
+
+/* h1 styling  */
 h1 {
   font-size: 2.5rem;
   font-weight: 200;
-  padding-left: 1rem;
+  padding-left: 2rem;
+  padding-top: 1rem;
 }
 
+/* h2 styling  */
 h2 {
   position: fixed;
   bottom: 22%;
@@ -36,11 +61,18 @@ h2 {
   color: var(--primary-bg-color);
 }
 
+/* h4 styling  */
 h4 {
   color: var(--primary-bg-color);
   font-size: 3rem;
 }
 
+.links {
+  font-size: 2rem;
+  color: lightgray;
+}
+/* --------------------------------------------- */
+/* Ids used to enable the fade on the overlapping title */
 #title {
   opacity: 1;
   transition: 1s;
@@ -49,16 +81,6 @@ h4 {
 #title.fade {
   opacity: 0;
   transition: 1s;
-}
-
-a {
-  color: black;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-p {
-  font-weight: 500;
 }
 
 #line {
@@ -75,6 +97,23 @@ p {
   opacity: 0;
   transition: 1s;
 }
+/* --------------------------------------------- */
+
+/* Remove colouring and decoration from hyper links */
+a {
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back {
+  color: var(--primary-bg-color);
+}
+
+/* Paragraph styling */
+p {
+  font-weight: 500;
+}
 
 /* Create a container for the main content */
 .container {
@@ -83,6 +122,7 @@ p {
   padding: 10px;
 }
 
+/* Background Video styling */
 #bgv {
   filter: blur(5px) invert(1);
   z-index: -100;
@@ -90,6 +130,7 @@ p {
   opacity: 50%;
 }
 
+/* Top menu styling and flex box */
 #top-menu {
   display: flex;
   flex-direction: row;
@@ -98,7 +139,7 @@ p {
   padding-right: 1rem;
   padding-bottom: 1rem;
 }
-
+/* Nav styling and flex box */
 #nav {
   display: flex;
   flex-direction: row;
@@ -112,6 +153,7 @@ p {
   border-radius: 25px;
 }
 
+/* Decorated name in top left */
 #name {
   font-family: "Radio Canada", sans-serif;
   font-size: 2.7rem;
@@ -122,17 +164,20 @@ p {
   color: var(--primary-bg-color);
 }
 
+/* Like button styling */
 #like-btn {
   display: flex;
-  align-items: center;
   justify-content: space-around;
-  width: 4rem;
-  position: fixed;
-  right: 15%;
-  bottom: 15%;
+  min-width: 4rem;
+  height: 48px;
   padding: 5px;
   border-radius: 5px;
   border: white;
+}
+
+#likes {
+  color: #333;
+  font-weight: 500;
 }
 
 /* Media player styling */

@@ -9,6 +9,7 @@ const line = document.querySelector("#line");
 const likeButton = document.querySelector("#like-btn");
 const likes = document.querySelector("#likes");
 
+//-----------------------------------------------------------------
 video.removeAttribute("controls");
 // playPauseBtn.addEventListener("click", togglePlayPause);
 video.addEventListener("timeupdate", updateProgressBar);
