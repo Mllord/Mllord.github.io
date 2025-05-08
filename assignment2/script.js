@@ -11,6 +11,7 @@ const likes = document.querySelector("#likes");
 
 video.removeAttribute("controls");
 playPauseBtn.addEventListener("click", togglePlayPause);
+video.addEventListener("click", togglePlayPause);
 video.addEventListener("timeupdate", updateProgressBar);
 function togglePlayPause() {
   if (video.paused || video.ended) {
@@ -36,6 +37,7 @@ function updateProgressBar() {
 //-----------------------------------------------------------------
 // Enables the functioning of the fullscreen button in addition to ensuring functionality across multiple browers
 fullscreen.addEventListener("click", toggleFullScreen);
+video.addEventListener("dblclick", toggleFullScreen);
 function toggleFullScreen() {
   if (!document.fullscreenElement) {
     if (video.requestFullscreen) {
