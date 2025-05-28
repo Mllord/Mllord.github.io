@@ -2,10 +2,10 @@
 const cards = document.querySelectorAll(".card");
 
 // Base Z-position offset
-const baseZ = 500;
+const baseZ = -500;
 
 // Distance between cards along the Z-axis
-const spacing = 800;
+const spacing = -800;
 
 /**
  * Updates the position of each card based on scroll.
@@ -15,7 +15,7 @@ function updateCards(scrollY) {
   cards.forEach((card, i) => {
     // Each card moves along Z-axis as user scrolls
     // We multiply scrollY by -1 to make the cards appear to move toward the user
-    const z = baseZ + i * spacing + scrollY * -1;
+    const z = baseZ + i * spacing + scrollY * 1;
 
     // Apply the Z-axis translation
     card.style.transform = `translateZ(${z}px)`;
