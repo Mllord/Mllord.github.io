@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  padding: 0;
+  perspective: 400px;
+  overflow: hidden;
+  background: #252825;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 99.99%; /* Should be `0` but Safari needs this! (BUG #1) */
+  right: 0;
+}
+
+.wrapper {
+  transform-style: preserve-3d;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transform: rotateX(40deg);
+}
+
+.slides {
+  perspective: 313px;
+  padding: 50px 0px;
+  width: 100%;
+  height: 400px;
+  transform-style: preserve-3d;
+  overflow: auto;
+  transform: translate(-50%, -0%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+.slide {
+  position: relative;
+  margin: auto;
+  width: 600px;
+  height: 400px;
+  transform: rotateX(-40deg);
+  transform-origin: 0 0;
+  box-shadow: inset 0 0 0 5px rgba(200, 200, 200, 0.25);
+}
+.title {
+  color: #fff;
+  font-size: 275%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+}
+
+/* colours
+  ----------------------------------------- */
+
+.slide:nth-child(1) {
+  background: hsla(0, 70%, 50%, 0.75);
+}
+.slide:nth-child(2) {
+  background: hsla(45, 70%, 50%, 0.75);
+}
+.slide:nth-child(3) {
+  background: hsla(90, 70%, 50%, 0.75);
+}
+.slide:nth-child(4) {
+  background: hsla(135, 70%, 50%, 0.75);
+}
+.slide:nth-child(5) {
+  background: hsla(180, 70%, 50%, 0.75);
+}
+.slide:nth-child(6) {
+  background: hsla(215, 70%, 50%, 0.75);
+}
+
+/* Debugging
+  ----------------------------------------- */
+
+label {
+  font: 100%/1.5 Arial;
+  background: #fff;
+  padding: 0.25em 0.5em;
+  border-radius: 3px;
+  position: fixed;
+  z-index: 1;
+  margin: 0.5em;
+}
+.wrapper {
+  transition: 0.5s transform;
+}
+.slide {
+  transition: 0.5s 1s transform;
+}
+.slides {
+  box-shadow: 0 0 0 1px #0c0;
+  transition: 0.5s 2s width;
+}
+#debug {
+  position: absolute;
+  top: -1000em;
+}
+#debug:checked ~ .wrapper {
+  transform: none;
+  transition: 0.5s 2s transform;
+}
+#debug:checked ~ .wrapper .slide {
+  transform: none;
+  transition: 0.5s 1s transform;
+}
+#debug:checked ~ .wrapper .slides {
+  width: 600px;
+  transition: 0.5s width;
+}
+#debug:not(:checked) + label::after {
+  content: " 2D";
+}
+#debug:checked + label::after {
+  content: " 3D";
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="content">
+      <div id="viewport">
+        <div id="instructions-overlay">
+          <h1>Initial Instructions Overlay</h1>
+          <p>This will go away after you scroll</p>
+          <p>
+            Orig Source Code From
+            <a
+              href="http://eng.wealthfront.com/2012/03/22/scrolling-z-axis-with-css-3d-transforms/"
+              >Matt Baker</a
+            >
+          </p>
+        </div>
+
+        <div
+          class="frame box"
+          style="
+            -webkit-transform: translateZ(-9000px);
+            -moz-transform: translateZ(-9000px);
+          "
+        >
+          <h1>Frame 10 (Box)</h1>
+        </div>
+        <div
+          class="frame text"
+          style="
+            -webkit-transform: translateZ(-8000px);
+            -moz-transform: translateZ(-8000px);
+          "
+        >
+          <h1>Frame 9 (Text)</h1>
+        </div>
+        <div
+          class="frame image"
+          style="
+            -webkit-transform: translateZ(-7000px);
+            -moz-transform: translateZ(-7000px);
+          "
+        >
+          <h1>Frame 8 (Image)</h1>
+          <img src="http://via.placeholder.com/1000x400" />
+        </div>
+        <div
+          class="frame text"
+          style="
+            -webkit-transform: translateZ(-6000px);
+            -moz-transform: translateZ(-6000px);
+          "
+        >
+          <h1>Frame 7 (Text)</h1>
+        </div>
+        <div
+          class="frame box"
+          style="
+            -webkit-transform: translateZ(-5000px);
+            -moz-transform: translateZ(-5000px);
+          "
+        >
+          <h1>Frame 6 (Box)</h1>
+        </div>
+        <div
+          class="frame text"
+          style="
+            -webkit-transform: translateZ(-4000px);
+            -moz-transform: translateZ(-4000px);
+          "
+        >
+          <h1>Frame 5 (Text)</h1>
+        </div>
+        <div
+          class="frame image"
+          style="
+            -webkit-transform: translateZ(-3000px);
+            -moz-transform: translateZ(-3000px);
+          "
+        >
+          <h1>Frame 4 (Image)</h1>
+          <img src="http://via.placeholder.com/1000x200" />
+          <p>Lorem ipsum</p>
+        </div>
+        <div
+          class="frame text"
+          style="
+            -webkit-transform: translateZ(-2000px);
+            -moz-transform: translateZ(-2000px);
+          "
+        >
+          <h1>Frame 3 (Text)</h1>
+        </div>
+
+        <div
+          class="frame box"
+          style="
+            -webkit-transform: translateZ(-1000px);
+            -moz-transform: translateZ(-1000px);
+          "
+        >
+          <h1>Frame 2 (Box)</h1>
+        </div>
+        <div
+          class="frame box"
+          style="
+            -webkit-transform: translateZ(-1000px);
+            -moz-transform: translateZ(-1000px);
+          "
+        >
+          <h1>Frame 1 (Box)</h1>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

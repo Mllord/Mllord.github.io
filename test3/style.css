@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #808080;
+  height: 7600px;
+  text-align: center;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+#content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* if smaller content box is used and centering is needed: 
+      top:50%;
+      left:50%;
+      transform: translate(-50%, -50%);
+      */
+  border: 2px dashed red;
+}
+#viewport {
+  -webkit-perspective: 300px;
+  -moz-perspective: 300px;
+  -webkit-perspective-origin: 50% 50%;
+  -moz-perspective-origin: 50% 50%;
+  -moz-transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+}
+
+#instructions-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -moz-transform-style: preserve-3d;
+}
+.frame.text {
+  text-align: center;
+  -moz-transform-style: preserve-3d;
+}
+.frame.image {
+  text-align: center;
+}
+.frame.text h1 {
+  color: white;
+  padding: 2em;
+}
+.frame.box {
+  border-radius: 0.5em;
+  background-color: white;
+  padding: 2em;
+}
