@@ -3,36 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="reset.css" />
+    <title>Data Network Scroll</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-    <title>Document</title>
   </head>
   <body>
-    <input id="debug" type="checkbox" />
-    <label for="debug">Debug: Transition to </label>
+    <div class="scene" id="scene">
+      <div class="connection-line"></div>
 
-    <div class="wrapper">
-      <div class="slides">
-        <div class="slide">
-          <div class="title">Pure CSS z-scrolling</div>
-        </div>
-        <div class="slide">
-          <div class="title">Slide 1</div>
-        </div>
-        <div class="slide">
-          <div class="title">Slide 2</div>
-        </div>
-        <div class="slide">
-          <div class="title">Slide 3</div>
-        </div>
-        <div class="slide">
-          <div class="title">Slide 4</div>
-        </div>
-        <div class="slide">
-          <div class="title">Slide 5</div>
-        </div>
+      <div
+        class="node"
+        style="top: 10vh; transform: translateX(-50%) translateZ(0px)"
+      >
+        <h2>Welcome Node</h2>
+        <p>Entering the network...</p>
+      </div>
+
+      <div
+        class="node"
+        style="top: 10vh; transform: translateX(-50%) translateZ(-600px)"
+      >
+        <h2>Project Node</h2>
+        <p>Here are some featured projects.</p>
+      </div>
+
+      <div
+        class="node"
+        style="top: 10vh; transform: translateX(-50%) translateZ(-1200px)"
+      >
+        <h2>Contact Node</h2>
+        <p>Send a message through the network.</p>
+      </div>
+
+      <div
+        class="node"
+        style="top: 10vh; transform: translateX(-50%) translateZ(-1800px)"
+      >
+        <h2>Final Node</h2>
+        <p>You’ve reached the system core.</p>
       </div>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

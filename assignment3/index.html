@@ -9,22 +9,82 @@
     <title>Z-Axis Scroll Timeline</title>
   </head>
   <body>
+    <!-- the scroll progress bar -->
+    <div id="scroll-progress"></div>
     <!-- The 3D scene where perspective is applied -->
     <div class="scene">
       <div class="timeline">
         <!-- Timeline cards that will move in 3D space -->
-        <div class="card" id="slide1">Slide1</div>
-        <div class="card" id="slide2">slide2</div>
-        <div class="card" id="slide3">slide3</div>
-        <div class="card" id="slide4">slide4</div>
-        <div class="card">slide6</div>
-        <div class="card">slide7</div>
-        <div class="card">slide8</div>
+        <div class="card" id="slide1">
+          <h3>The Internet</h3>
+          <p>
+            A massive global network linking billions of devices. It enables
+            digital communication, information sharing, and access to services
+            worldwide through standardized data transmission.
+          </p>
+        </div>
+        <div class="card" id="slide2">
+          <h3>Web Services</h3>
+          <p>
+            Systems built on the internet like email, cloud storage, streaming,
+            and messaging platforms. These provide interactive experiences and
+            enable digital productivity, entertainment, and communication.
+          </p>
+        </div>
+        <div class="card" id="slide3">
+          <h3>Websites & Applications</h3>
+          <p>
+            Individual tools or destinations online—like YouTube, Wikipedia, or
+            banking apps. Each serves specific functions and caters to user
+            needs like searching, shopping, watching, or managing tasks.
+          </p>
+        </div>
+        <div class="card" id="slide4">
+          <h3>Pages & Interfaces</h3>
+          <p>
+            The screens users interact with—homepages, dashboards, profiles,
+            etc. These visual layouts organize content, navigation, and
+            interactive elements into a user-friendly experience.
+          </p>
+        </div>
+        <div class="card" id="slide5">
+          <h3>Content & Funtionality</h3>
+          <p>
+            Text, images, videos, links, buttons, and forms. These are the
+            visible parts users read, watch, click, and fill out to navigate and
+            use a site or app.
+          </p>
+        </div>
+        <div class="card" id="slide6">
+          <h3>Codes & Scripts</h3>
+          <p>
+            Behind-the-scenes instructions written in languages like HTML, CSS,
+            and JavaScript. This code defines how everything looks and behaves,
+            from page layout to animations and responses to clicks.
+          </p>
+        </div>
+        <div class="card" id="slide7">
+          <h3>Protocols & Data</h3>
+          <p>
+            Rules and structures (like HTTP, TCP/IP, JSON) that govern how
+            devices exchange information. They ensure data moves accurately and
+            securely across the network.
+          </p>
+        </div>
+        <div class="card" id="slide8">
+          <h3>Servers & Infrastructure</h3>
+          <p>
+            The physical and digital backbone: computers, data centers, cables,
+            and routers. These machines host websites, process requests, and
+            deliver data across the globe.
+          </p>
+        </div>
       </div>
     </div>
 
+    <canvas id="matrix-canvas"></canvas>
+
     <!-- Fake scroll area -->
     <div class="spacer"></div>
-
   </body>
 </html>

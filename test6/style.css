@@ -1,0 +1,77 @@
+/* Reset and Base Styles */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background: black;
+  overflow: hidden;
+  font-family: "Courier New", monospace;
+}
+
+/* Login Screen Container */
+#login-screen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  perspective: 1000px;
+  z-index: 10000;
+  transition: opacity 1s ease;
+}
+
+/* Fade Out Animation */
+#login-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* LINK START Text */
+#login-text {
+  position: absolute;
+  bottom: 20vh;
+  font-size: 3rem;
+  color: white;
+  text-shadow: 0 0 10px cyan;
+  animation: glowPulse 1.2s infinite alternate;
+  z-index: 2;
+}
+
+@keyframes glowPulse {
+  from {
+    opacity: 0.7;
+    text-shadow: 0 0 10px cyan;
+  }
+  to {
+    opacity: 1;
+    text-shadow: 0 0 30px cyan;
+  }
+}
+
+/* Pillar Container (3D) */
+.pillar-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  perspective-origin: center;
+  overflow: visible;
+}
+
+/* Individual Light Pillar */
+.pillar {
+  position: absolute;
+  width: 2px;
+  height: 200px;
+  background: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(90deg) translateZ(-2000px);
+  box-shadow: 0 0 20px cyan, 0 0 50px cyan;
+  opacity: 0.8;
+  mix-blend-mode: screen;
+  transform-style: preserve-3d;
+}

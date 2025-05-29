@@ -8,34 +8,9 @@ body {
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-h3 {
-  font-weight: bold;
-  padding-bottom: 5px;
-}
-
-p {
-  font-size: small;
-}
-
-#scroll-progress {
+#bg {
   position: fixed;
-  top: 0;
-  left: 0;
-  height: 5px;
-  background: linear-gradient(to right, rgb(0, 255, 81), #0f0);
-  width: 0%;
-  z-index: 9999;
-  transition: width 0.1s ease-out;
-}
-#matrix-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  background: black;
-  opacity: 50%;
+  z-index: -500;
 }
 
 /* Container for 3D content */
@@ -63,11 +38,11 @@ p {
 .card {
   position: absolute; /* Positioned absolutely within the 3D space */
   width: 300px;
-  height: auto;
+  height: 150px;
   background: rgba(0, 255, 234, 0.1); /* Transparent background */
-  border: 1px solid #0f0;
+  border: 1px solid #00ffea;
   border-radius: 10px;
-  box-shadow: 0 0 10px #0f0;
+  box-shadow: 0 0 10px #00ffea;
   padding: 20px;
   text-align: center;
   font-size: 1.2rem;
@@ -87,36 +62,16 @@ p {
 }
 
 #slide2 {
-  left: 15%;
+  left: 25%;
   top: 20%;
 }
 
 #slide3 {
   right: 25%;
-  bottom: 15%;
-}
-
-#slide4 {
-  left: 15%;
   bottom: 20%;
 }
 
-#slide5 {
-  right: 25%;
-  top: 20%;
-}
-
-#slide6 {
-  left: 15%;
-  top: 20%;
-}
-
-#slide7 {
-  right: 20%;
-  bottom: 25%;
-}
-
-#slide8 {
+#slide4 {
   left: 25%;
-  bottom: 15%;
+  bottom: 20%;
 }
