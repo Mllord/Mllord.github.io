@@ -3,28 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- I'm importing a CSS reset to clear default browser styles for consistency -->
     <link rel="stylesheet" href="reset.css" />
-
-    <!-- This is my custom styling for the timeline and 3D effect -->
     <link rel="stylesheet" href="style.css" />
-
-    <!-- The Matrix code and scroll interactions run through this JS file -->
     <script src="script.js" defer></script>
-
-    <title>Stages of the Internet</title>
+    <title>Z-Axis Scroll Timeline</title>
   </head>
   <body>
-    <!-- This bar visually tracks how far the user has scrolled into the page -->
+    <!-- the scroll progress bar -->
     <div id="scroll-progress"></div>
-
-    <!-- This wrapper gives the scene a perspective, enabling the 3D Z-axis effect -->
+    <!-- The 3D scene where perspective is applied -->
     <div class="scene">
       <div class="timeline">
-        <!-- Each of these "cards" represents a stage in the internet breakdown.
-             I spaced them in Z-depth so they appear to fly toward the user as they scroll. -->
-
+        <!-- Timeline cards that will move in 3D space -->
         <div class="card" id="slide1">
           <h3>The Internet</h3>
           <p>
@@ -33,7 +23,6 @@
             worldwide through standardized data transmission.
           </p>
         </div>
-
         <div class="card" id="slide2">
           <h3>Web Services</h3>
           <p>
@@ -42,7 +31,6 @@
             enable digital productivity, entertainment, and communication.
           </p>
         </div>
-
         <div class="card" id="slide3">
           <h3>Websites & Applications</h3>
           <p>
@@ -51,7 +39,6 @@
             needs like searching, shopping, watching, or managing tasks.
           </p>
         </div>
-
         <div class="card" id="slide4">
           <h3>Pages & Interfaces</h3>
           <p>
@@ -60,7 +47,6 @@
             interactive elements into a user-friendly experience.
           </p>
         </div>
-
         <div class="card" id="slide5">
           <h3>Content & Funtionality</h3>
           <p>
@@ -69,7 +55,6 @@
             use a site or app.
           </p>
         </div>
-
         <div class="card" id="slide6">
           <h3>Codes & Scripts</h3>
           <p>
@@ -78,7 +63,6 @@
             from page layout to animations and responses to clicks.
           </p>
         </div>
-
         <div class="card" id="slide7">
           <h3>Protocols & Data</h3>
           <p>
@@ -87,7 +71,6 @@
             securely across the network.
           </p>
         </div>
-
         <div class="card" id="slide8">
           <h3>Servers & Infrastructure</h3>
           <p>
@@ -99,10 +82,9 @@
       </div>
     </div>
 
-    <!-- This canvas draws the animated Matrix code background; it’s layered behind everything else -->
     <canvas id="matrix-canvas"></canvas>
 
-    <!-- This spacer just gives the page height to allow scrolling to activate the Z-axis effect -->
+    <!-- Fake scroll area -->
     <div class="spacer"></div>
   </body>
 </html>
