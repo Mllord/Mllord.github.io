@@ -1,36 +1,36 @@
 // Select all timeline cards
 const cards = document.querySelectorAll(".card");
 
-// Base Z-position offset
+// Base Z-position offset to start the cards closer to the user
 const baseZ = 250;
 
-// Distance between cards along the Z-axis
+// Space between each card along the Z-axis; negative so they go further away
 const spacing = -800;
 
 /**
- * Updates the position of each card based on scroll.
- * @param {number} scrollY - Current vertical scroll position
+ * Updates each card's Z position based on scroll position.
+ * This creates a 3D depth illusion as the user scrolls.
  */
 function updateCards(scrollY) {
   cards.forEach((card, i) => {
-    // Each card moves along Z-axis as user scrolls
-    // We multiply scrollY by -1 to make the cards appear to move toward the user
+    // Z = base offset + index spacing + scroll position (pulled forward)
     const z = baseZ + i * spacing + scrollY * 1;
 
-    // Apply the Z-axis translation
+    // Move the card in 3D space
     card.style.transform = `translateZ(${z}px)`;
   });
 }
 
-// Listen to scroll events and update card positions
+// Trigger card depth updates on scroll
 window.addEventListener("scroll", () => {
   updateCards(window.scrollY);
 });
 
-// Initialize the positions on page load
+// Ensure cards are in the right place on page load
 updateCards(window.scrollY);
 
-// for the scroll progress bar
+// --- Scroll Progress Bar ---
+// Tracks how far user has scrolled and updates the progress bar width
 window.addEventListener("scroll", () => {
   const scrollTop = window.scrollY || document.documentElement.scrollTop;
   const scrollHeight =
@@ -38,36 +38,47 @@ window.addEventListener("scroll", () => {
   const scrollPercent = (scrollTop / scrollHeight) * 100;
   document.getElementById("scroll-progress").style.width = `${scrollPercent}%`;
 });
-////////////
 
+// --- Matrix Code Background Setup ---
 const canvas = document.getElementById("matrix-canvas");
 const ctx = canvas.getContext("2d");
 
+// Match canvas to screen size
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+// Font and column layout settings
 const fontSize = 16;
 const columns = Math.floor(canvas.width / fontSize);
+
+// Characters to display (Japanese katakana + alphanumerics)
 const letters =
   "アァイイウエオカキクケコサシスセソABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split(
     ""
   );
 
+// Random vertical offsets so each column starts staggered
 const columnOffsets = Array.from(
   { length: columns },
   () => Math.random() * 100
 );
 
-// Store current characters per column
+// Create initial character for each column
 const currentChars = new Array(columns)
   .fill("")
   .map(() => letters[Math.floor(Math.random() * letters.length)]);
-const updateRate = 50; // update every 10 scroll units
+
+// Control how frequently letters update (based on scroll units)
+const updateRate = 50;
 let lastFrame = 0;
 
+/**
+ * Draws Matrix-style rain text using scrollY as the animation controller.
+ */
 function drawMatrix(scrollY) {
   const frame = Math.floor(scrollY / updateRate);
 
+  // Add a translucent black layer to simulate fading trails
   ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -79,22 +90,25 @@ function drawMatrix(scrollY) {
     const baseOffset = scrollY / 5 + columnOffsets[i] * 5;
     const y = Math.floor(baseOffset) % canvas.height;
 
-    // Only update character every N frames
+    // Only update each column's character every N scroll units
     if (frame !== lastFrame) {
       currentChars[i] = letters[Math.floor(Math.random() * letters.length)];
     }
 
+    // Draw character in its column
     ctx.fillText(currentChars[i], x, y);
   }
 
-  lastFrame = frame;
+  lastFrame = frame; // Update last rendered frame
 }
 
+// Redraw matrix rain on scroll
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY || document.documentElement.scrollTop;
   drawMatrix(scrollY);
 });
 
+// Resize canvas if window size changes
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
