@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>_Main | 3D Artist & Game Designer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Preloader / Loading Animation -->
+    <div id="preloader">
+      <div class="preloader-content">
+        <div class="pixel-corners">
+          <div class="progress-text">0</div>
+          <div class="loading-text">LOADING WORLD...</div>
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill"></div>
+          </div>
+          <div class="loading-tip">Tip: Use ← → to navigate projects</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="canvas-container"></div>
+
+    <div class="app">
+      <nav class="navbar">
+        <div class="nav-brand"><span class="logo">_Main</span></div>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="#work" class="nav-link">Work</a></li>
+          <li><a href="#other-works" class="nav-link">Other Works</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-toggle"><i class="fas fa-bars"></i></div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <div class="hero-badge pixel-text">✦ PLAYER ONE ✦</div>
+          <h1 class="glow-text">
+            Sculpting <span class="accent">digital realms</span>
+          </h1>
+          <p>
+            3D artist focused on game environments, character design, and
+            immersive storytelling. Every polygon tells a tale.
+          </p>
+          <div class="hero-buttons">
+            <a href="#work" class="btn-primary"
+              >Explore Work <i class="fas fa-gamepad"></i
+            ></a>
+            <a href="contact.html" class="btn-outline">Start Quest</a>
+          </div>
+        </div>
+        <div class="hero-scroll">
+          <span>Scroll</span><i class="fas fa-chevron-down"></i>
+        </div>
+      </section>
+
+      <!-- Main Projects (Horizontal Scroll) -->
+      <section id="work" class="work">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-subtitle pixel-text">// MAIN QUESTS //</span>
+            <h2>Featured <span class="accent">projects</span></h2>
+            <div class="divider"></div>
+          </div>
+          <div class="horizontal-scroll-wrapper">
+            <div class="projects-scroll">
+              <div class="project-card pixel-border">
+                <div class="project-img">
+                  <img
+                    src="https://picsum.photos/id/104/500/400"
+                    alt="Organic"
+                  />
+                  <div class="project-overlay">
+                    <i class="fas fa-search-plus"></i>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <h3>Ethereal Bloom</h3>
+                  <p>ZBrush & Substance</p>
+                  <div class="project-tags">
+                    <span>Sculpt</span><span>Organic</span>
+                  </div>
+                </div>
+              </div>
+              <div class="project-card pixel-border">
+                <div class="project-img">
+                  <img src="https://picsum.photos/id/42/500/400" alt="Sci-Fi" />
+                  <div class="project-overlay">
+                    <i class="fas fa-search-plus"></i>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <h3>Neon Outpost</h3>
+                  <p>Blender & Unreal</p>
+                  <div class="project-tags">
+                    <span>Environment</span><span>Lighting</span>
+                  </div>
+                </div>
+              </div>
+              <div class="project-card pixel-border">
+                <div class="project-img">
+                  <img
+                    src="https://picsum.photos/id/30/500/400"
+                    alt="Character"
+                  />
+                  <div class="project-overlay">
+                    <i class="fas fa-search-plus"></i>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <h3>Nomad Spirit</h3>
+                  <p>Marvelous Designer</p>
+                  <div class="project-tags">
+                    <span>Character</span><span>Rigging</span>
+                  </div>
+                </div>
+              </div>
+              <div class="project-card pixel-border">
+                <div class="project-img">
+                  <img src="https://picsum.photos/id/91/500/400" alt="Motion" />
+                  <div class="project-overlay">
+                    <i class="fas fa-search-plus"></i>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <h3>Quantum Flux</h3>
+                  <p>Houdini / AE</p>
+                  <div class="project-tags">
+                    <span>Motion</span><span>VFX</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="scroll-hint">
+            <i class="fas fa-arrows-alt-h"></i> Drag horizontally →
+          </div>
+        </div>
+      </section>
+
+      <!-- RPG Character Selector Style Section (Other Works) -->
+      <section id="other-works" class="other-works">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-subtitle pixel-text">// SIDE QUESTS //</span>
+            <h2>Other <span class="accent">creations</span></h2>
+            <div class="divider"></div>
+          </div>
+          <div class="character-selector">
+            <div class="selector-image">
+              <img
+                id="selectorImg"
+                src="https://picsum.photos/id/169/500/600"
+                alt="Artwork preview"
+              />
+              <div class="pixel-corner-decoration"></div>
+            </div>
+            <div class="selector-info">
+              <div class="selector-header">
+                <span class="rarity-badge">✦ UNCOMMON ✦</span>
+                <h2 id="selectorTitle">Cyber Samurai</h2>
+              </div>
+              <div class="selector-description" id="selectorDesc">
+                A personal exploration of futuristic warriors blending
+                traditional armor with neon aesthetics. Modeled in Blender,
+                textured in Substance Painter.
+              </div>
+              <div class="selector-stats">
+                <div class="stat">
+                  <span>Polygons:</span> <span id="statPoly">24k</span>
+                </div>
+                <div class="stat">
+                  <span>Textures:</span> <span id="statTex">4K PBR</span>
+                </div>
+                <div class="stat">
+                  <span>Tools:</span>
+                  <span id="statTools">Blender, Photoshop</span>
+                </div>
+              </div>
+              <div class="selector-controls">
+                <button id="prevArt" class="btn-outline small">
+                  <i class="fas fa-chevron-left"></i> Prev
+                </button>
+                <button id="nextArt" class="btn-outline small">
+                  Next <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+              <div class="selector-progress">
+                <span id="artCounter">1 / 4</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-text">
+              <div class="section-subtitle pixel-text">// PLAYER STATS //</div>
+              <h2>Less noise, <span class="accent">more signal</span></h2>
+              <p>
+                I'm _Main — a 3D artist obsessed with clean geometry,
+                atmospheric lighting, and narrative depth. Over 6 years of
+                crafting visuals for games, films, and digital art galleries.
+              </p>
+              <p>
+                My work blends technical precision with a minimalist eye,
+                ensuring every polygon serves the story. Available for freelance
+                & collaborations worldwide.
+              </p>
+              <div class="skill-bars">
+                <div class="skill">
+                  <span>Blender / Maya</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 94%"></div>
+                  </div>
+                </div>
+                <div class="skill">
+                  <span>ZBrush / Substance</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 89%"></div>
+                  </div>
+                </div>
+                <div class="skill">
+                  <span>Unreal / Unity</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 82%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="about-stats">
+              <div class="stat-card pixel-border">
+                <i class="fas fa-cube"></i>
+                <h3>40+</h3>
+                <p>Projects</p>
+              </div>
+              <div class="stat-card pixel-border">
+                <i class="fas fa-globe"></i>
+                <h3>10+</h3>
+                <p>Countries</p>
+              </div>
+              <div class="stat-card pixel-border">
+                <i class="fas fa-award"></i>
+                <h3>5</h3>
+                <p>Awards</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Toast Notification Container (for achievements) -->
+      <div id="toast-container"></div>
+
+      <footer class="footer">
+        <div class="footer-content">
+          <p>
+            © 2025 _Main — 3D Art & Design. <i class="fas fa-heart"></i> Press
+            START to create.
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.128.0/build/three.module.js"
+        }
+      }
+    </script>
+    <script src="script.js" type="module"></script>
+  </body>
+</html>

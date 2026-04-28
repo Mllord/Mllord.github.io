@@ -1,29 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Uh oh</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Milo Nagata — Digital Designer & Artist</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
       rel="stylesheet"
     />
-    <!-- linking the favicon icons for the website -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-    <link rel="manifest" href="site.webmanifest" />
-    <!-- reset the style for a blank slate then input my own css -->
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>You Shouldn't Be Here</h1>
-    <p>Are you looking for any of the following?</p>
-    <a href="assignment1/">Assignment 1</a>
-    <a href="assignment2/">Assignment 2</a>
-    <a href="assignment3/">Assignment 3</a>
+    <div id="cursor-container">
+      <div class="cursor-main"></div>
+      <div class="cursor-trail"></div>
+    </div>
+
+    <div class="preloader" id="preloader">
+      <div class="preloader-shape"></div>
+      <div class="preloader-label">digital designer & artist</div>
+    </div>
+
+    <div class="site-wrapper">
+      <header class="site-header">
+        <div class="container header-flex">
+          <div class="logo">
+            <a href="#">MILO<span>NAGATA</span></a>
+          </div>
+          <nav>
+            <ul>
+              <li><a href="#work" class="nav-link">Work</a></li>
+              <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-bg"></div>
+          <div class="container hero-inner">
+            <h1>digital designer<br /><span class="accent">& artist</span></h1>
+            <p>concept art · 3D Environments · UI/UX · motion design</p>
+          </div>
+        </section>
+
+        <div id="work" class="projects-container"></div>
+
+        <footer class="footer" id="contact">
+          <div class="container footer-inner">
+            <div class="footer-brand">MILO</div>
+            <div class="footer-contact">
+              <a href="mailto:milonagata@gmail.com" class="email"
+                >milonagata@gmail.com</a
+              >
+              <div class="social">
+                <a
+                  href="https://www.linkedin.com/in/MiloNagata"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="email"
+                  ><i class="fab fa-linkedin-in"></i> Milo Nagata</a
+                >
+              </div>
+            </div>
+            <div class="footer-copy">2026 — Milo Nagata</div>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
