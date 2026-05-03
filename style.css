@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none; /* hide default cursor */
+  cursor: none;
 }
 body {
   font-family: "Inter", sans-serif;
@@ -18,7 +18,7 @@ body {
   padding: 0 2rem;
 }
 
-/* CUSTOM CURSOR - GUARANTEED VISIBLE */
+/* CUSTOM CURSOR */
 #cursor-container {
   position: fixed;
   top: 0;
@@ -179,26 +179,27 @@ nav a:hover {
   color: #8d99ae;
 }
 
-/* PROJECTS CONTAINER */
+/* PROJECTS - FLEX LAYOUT WITH LIMITED OVERLAP */
 .projects-container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
 }
 .project {
-  position: relative;
-  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
   margin-bottom: 56rem;
-  display: block;
+  min-height: 70vh;
 }
 .project-image {
-  position: absolute;
-  width: 50%;
+  flex: 1;
+  max-width: 55%;
+  position: relative;
   z-index: 1;
   border-radius: 0;
   overflow: hidden;
-  top: 50%;
-  transform: translateY(-50%);
 }
 .img-placeholder {
   width: 100%;
@@ -210,15 +211,64 @@ nav a:hover {
   font-size: 4rem;
   color: rgba(239, 35, 60, 0.6);
   border-radius: 0;
+  overflow: hidden;
 }
-.project-text {
-  position: absolute;
-  z-index: 2;
-  width: 55%;
-  background: transparent;
-  padding: 0;
+.img-placeholder iframe,
+.img-placeholder video,
+.img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border: none;
 }
+.project-text {
+  flex: 1;
+  max-width: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 1.5rem;
+  border: none;
+  position: relative;
+  z-index: 2;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+/* Optional: slight border to separate from video */
+.project-text {
+  border-left: 2px solid #ef233c;
+}
+
+/* Overlap control: negative margin limited to ~5% (at most 10% of text width) */
+.project.image-left .project-text {
+  margin-left: -5%;
+}
+.project.image-left .project-image {
+  margin-right: -5%;
+}
+.project.image-right .project-image {
+  margin-left: -5%;
+}
+.project.image-right .project-text {
+  margin-right: -5%;
+}
+
+/* Slightly tighter on larger screens to ensure never >10% */
+@media (min-width: 1200px) {
+  .project.image-left .project-text {
+    margin-left: -3%;
+  }
+  .project.image-left .project-image {
+    margin-right: -3%;
+  }
+  .project.image-right .project-image {
+    margin-left: -3%;
+  }
+  .project.image-right .project-text {
+    margin-right: -3%;
+  }
+}
+
+/* TYPOGRAPHY */
 .project-title {
   font-family: "Playfair Display", serif;
   font-size: clamp(2.5rem, 3.5vw, 4rem);
@@ -226,12 +276,11 @@ nav a:hover {
   margin-bottom: 1rem;
   line-height: 1.2;
   color: #edf2f4;
-  white-space: normal;
   letter-spacing: -0.01em;
 }
 .project-desc {
   font-size: 1.3rem;
-  color: #8d99ae;
+  color: #e0dcd5;
   margin-bottom: 1.5rem;
   line-height: 1.4;
 }
@@ -241,12 +290,12 @@ nav a:hover {
   gap: 0.8rem;
 }
 .project-tags span {
-  background: rgba(239, 35, 60, 0.15);
+  background: rgba(239, 35, 60, 0.25);
   padding: 0.3rem 1.2rem;
   border-radius: 40px;
   font-size: 0.8rem;
-  border: 0.5px solid rgba(239, 35, 60, 0.3);
-  color: #8d99ae;
+  border: 0.5px solid rgba(239, 35, 60, 0.5);
+  color: #edf2f4;
 }
 
 /* FOOTER */
@@ -291,23 +340,10 @@ nav a:hover {
   color: #8d99ae;
 }
 
-/* RESPONSIVE OVERRIDES */
-@media (min-width: 1400px) {
-  .project-title {
-    font-size: 4rem;
-    white-space: nowrap;
-  }
-  .project-text {
-    width: 58%;
-  }
-  .project-image {
-    width: 48%;
-  }
-}
+/* RESPONSIVE */
 @media (max-width: 1200px) {
   .project-title {
     font-size: clamp(2rem, 4vw, 3rem);
-    white-space: normal;
   }
   .project-desc {
     font-size: 1.1rem;
@@ -318,22 +354,26 @@ nav a:hover {
 }
 @media (max-width: 800px) {
   .project {
+    flex-direction: column;
     margin-bottom: 15rem;
     min-height: auto;
   }
   .project-image,
   .project-text {
-    position: relative !important;
-    width: 90% !important;
+    max-width: 90%;
     margin: 1rem auto;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    transform: none !important;
+  }
+  .project.image-left .project-text,
+  .project.image-right .project-text,
+  .project.image-left .project-image,
+  .project.image-right .project-image {
+    margin: 1rem auto;
+  }
+  .project-text {
+    padding: 1rem;
   }
   .project-title {
     font-size: 2.5rem;
-    white-space: normal;
   }
   .project-desc {
     font-size: 1rem;

@@ -1,98 +1,115 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// ---------- PROJECT DATA (placeholder) ----------
+// ---------- PROJECT DATA (five projects) ----------
 const projectsData = [
   {
-    title: "Nyx · Spirit of Dusk",
-    desc: "Character concept / 3D sculpt & material study.",
-    tags: ["zbrush", "substance painter", "concept art"],
-    icon: "fa-dragon",
-    bgColor: "#3a2c2f",
+    title: "Field",
+    desc: "Immersive 3D environment",
+    tags: ["Unity", "Environment"],
+    videoUrl: "https://www.youtube.com/embed/_hI-jMQSGxI",
+    bgColor: "#2c4a3e",
   },
   {
-    title: "DRIFT / MEMORY",
-    desc: "Experimental short film / motion language & VFX.",
-    tags: ["cinema 4d", "after effects", "sound design"],
-    icon: "fa-play-circle",
-    bgColor: "#1e3a3a",
+    title: "Journey",
+    desc: "Immersive 3D Environment",
+    tags: ["Unity", "Environment"],
+    videoUrl: "https://www.youtube.com/embed/jz-7SUFb88k",
+    bgColor: "#3a2c4a",
   },
   {
-    title: "Ancient Library · UE5",
-    desc: "Real-time environment / lighting & atmosphere.",
-    tags: ["unreal engine 5", "megalights", "world building"],
-    icon: "fa-cubes",
-    bgColor: "#2d2f36",
+    title: "Self Portrait Video",
+    desc: "Short form video portrait",
+    tags: ["Premiere Pro", "Clip Studio Paint"],
+    videoUrl: "https://www.youtube.com/embed/Ce_h1-l7-uc",
+    bgColor: "#4a2c3e",
   },
   {
-    title: "AURA · Immersive Web",
-    desc: "WebGL experience / 3D storytelling & interaction.",
-    tags: ["three.js", "webgl", "creative coding"],
-    icon: "fa-globe",
-    bgColor: "#4a3b2c",
+    title: "Character Concept",
+    desc: "Concept Design for Characters",
+    tags: ["Clip Studio Paint"],
+    videoUrl: "https://www.youtube.com/embed/AwQ0WeSRZrg",
+    bgColor: "#2c3e4a",
+  },
+  {
+    title: "Deep Web",
+    desc: "Z-Axis Interactive Website",
+    tags: ["HTML", "CSS", "JS"],
+    videoUrl: "https://mllord.github.io/assignment3/",
+    bgColor: "#1f2c3c",
   },
 ];
 
-function randomRange(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+// Helper: convert YouTube URLs to embed, or return original URL for live sites
+function getEmbedUrl(url) {
+  if (!url) return null;
+  if (url.includes("/embed/")) return url;
+  let videoId = null;
+  if (url.includes("youtu.be/")) {
+    videoId = url.split("youtu.be/")[1].split("?")[0];
+  } else if (url.includes("watch?v=")) {
+    videoId = url.split("v=")[1].split("&")[0];
+  } else if (url.includes("shorts/")) {
+    videoId = url.split("shorts/")[1].split("?")[0];
+  }
+  if (videoId) return `https://www.youtube.com/embed/${videoId}`;
+  return url; // for live websites (non-YouTube)
 }
 
-function randomImagePosition() {
-  const side = Math.random() > 0.5 ? "left" : "right";
-  const distance = randomRange(20, 180);
-  const topPercent = randomRange(40, 60);
-  return { side, distance, topPercent };
-}
-
-function randomTextPosition() {
-  const side = Math.random() > 0.5 ? "left" : "right";
-  const distance = randomRange(30, 250);
-  const topPercent = randomRange(55, 85);
-  return { side, distance, topPercent };
-}
-
+// Generate projects with flex layout and limited overlap (using side classes)
 function generateProjects() {
   const container = document.querySelector(".projects-container");
   if (!container) return;
-  projectsData.forEach((proj) => {
+  container.innerHTML = "";
+
+  projectsData.forEach((proj, idx) => {
     const projectDiv = document.createElement("div");
     projectDiv.className = "project";
 
-    const imgPos = randomImagePosition();
+    // Determine side: first two fixed, rest random
+    let side;
+    if (idx === 0)
+      side = "left"; // Field: image left
+    else if (idx === 1)
+      side = "right"; // Journey: image right
+    else side = Math.random() > 0.5 ? "left" : "right";
+
+    projectDiv.classList.add(side === "left" ? "image-left" : "image-right");
+
+    // Image container (video/website iframe)
     const imgDiv = document.createElement("div");
     imgDiv.className = "project-image";
-    imgDiv.style.position = "absolute";
-    if (imgPos.side === "left") {
-      imgDiv.style.left = `${imgPos.distance}px`;
-      imgDiv.style.right = "auto";
-    } else {
-      imgDiv.style.right = `${imgPos.distance}px`;
-      imgDiv.style.left = "auto";
-    }
-    imgDiv.style.top = `${imgPos.topPercent}%`;
-    imgDiv.style.transform = "translateY(-50%)";
-    imgDiv.style.width = "50%";
-
     const placeholder = document.createElement("div");
     placeholder.className = "img-placeholder";
-    placeholder.style.setProperty("--bg", proj.bgColor);
-    placeholder.innerHTML = `<i class="fas ${proj.icon}"></i>`;
+    placeholder.style.setProperty("--bg", proj.bgColor || "#2b2d42");
+
+    if (proj.videoUrl) {
+      const embedUrl = getEmbedUrl(proj.videoUrl);
+      const iframe = document.createElement("iframe");
+      iframe.src = embedUrl;
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute(
+        "allow",
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+      );
+      iframe.setAttribute("allowfullscreen", true);
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.objectFit = "cover";
+      placeholder.appendChild(iframe);
+    } else if (proj.icon) {
+      placeholder.innerHTML = `<i class="fas ${proj.icon}"></i>`;
+    } else {
+      placeholder.innerHTML = `<i class="fas fa-cube"></i>`;
+    }
     imgDiv.appendChild(placeholder);
 
-    const textPos = randomTextPosition();
+    // Text container with background and blur
     const textDiv = document.createElement("div");
     textDiv.className = "project-text";
-    textDiv.style.position = "absolute";
-    if (textPos.side === "left") {
-      textDiv.style.left = `${textPos.distance}px`;
-      textDiv.style.right = "auto";
-    } else {
-      textDiv.style.right = `${textPos.distance}px`;
-      textDiv.style.left = "auto";
-    }
-    textDiv.style.top = `${textPos.topPercent}%`;
-    textDiv.style.transform = "translateY(-50%)";
-    textDiv.style.width = "55%";
-    textDiv.style.background = "transparent";
+    textDiv.style.background = "rgba(0,0,0,0.6)";
+    textDiv.style.backdropFilter = "blur(8px)";
+    textDiv.style.padding = "1.5rem";
+    textDiv.style.borderLeft = "2px solid #ef233c";
 
     const title = document.createElement("h2");
     title.className = "project-title";
@@ -112,12 +129,20 @@ function generateProjects() {
     textDiv.appendChild(desc);
     textDiv.appendChild(tagsDiv);
 
-    projectDiv.appendChild(imgDiv);
-    projectDiv.appendChild(textDiv);
+    // Append in correct order for flex
+    if (side === "left") {
+      projectDiv.appendChild(imgDiv);
+      projectDiv.appendChild(textDiv);
+    } else {
+      projectDiv.appendChild(textDiv);
+      projectDiv.appendChild(imgDiv);
+    }
+
     container.appendChild(projectDiv);
   });
 }
 
+// ---------- PARALLAX (unchanged) ----------
 function initParallax() {
   const images = document.querySelectorAll(".project-image");
   const texts = document.querySelectorAll(".project-text");
@@ -154,6 +179,7 @@ function initParallax() {
   });
 }
 
+// ---------- RANDOM LETTER SCRAMBLE (unchanged) ----------
 function initScrambleTitles() {
   const titles = document.querySelectorAll('[data-scramble="true"]');
   titles.forEach((titleElem) => {
@@ -216,29 +242,20 @@ function initScrambleTitles() {
   });
 }
 
-// ----- SIMPLE, RELIABLE CURSOR with trail -----
+// ---------- CUSTOM CURSOR WITH TRAIL ----------
 function initCustomCursor() {
   const mainCursor = document.querySelector(".cursor-main");
   const trailCursor = document.querySelector(".cursor-trail");
-  if (!mainCursor || !trailCursor) {
-    console.warn("Cursor elements not found");
-    return;
-  }
-  console.log("Cursor initialised"); // debug
-
+  if (!mainCursor || !trailCursor) return;
   let mouseX = 0,
     mouseY = 0;
   let trailX = 0,
     trailY = 0;
-
   document.addEventListener("mousemove", (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    // main cursor follows instantly
     gsap.set(mainCursor, { x: mouseX, y: mouseY });
   });
-
-  // trail with lag
   function animateTrail() {
     trailX += (mouseX - trailX) * 0.15;
     trailY += (mouseY - trailY) * 0.15;
@@ -246,8 +263,6 @@ function initCustomCursor() {
     requestAnimationFrame(animateTrail);
   }
   animateTrail();
-
-  // hover effects
   const interactives = document.querySelectorAll(
     "a, .project, .nav-link, .social a, .email, .logo a",
   );
@@ -263,7 +278,7 @@ function initCustomCursor() {
   });
 }
 
-// ---------- INIT ----------
+// ---------- INITIALIZATION ----------
 window.addEventListener("load", () => {
   generateProjects();
   initCustomCursor();
@@ -292,7 +307,7 @@ window.addEventListener("load", () => {
   }
 });
 
-// Smooth scroll nav
+// Smooth anchor scroll for navigation
 document.querySelectorAll(".nav-link").forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
