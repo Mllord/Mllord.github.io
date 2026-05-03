@@ -80,13 +80,31 @@ if (bioHeading) {
   });
 }
 
-// ========== BACKGROUND VIDEO: START AFTER 7 SECONDS ==========
+// ========== BACKGROUND VIDEO: START AFTER 7 SECONDS & NEVER PAUSE ==========
+let bgPlayer = null;
+
 function startBackgroundVideo() {
   const mainBgIframe = document.getElementById("mainBgVideo");
   if (!mainBgIframe) return;
   const finalVideoUrl =
     "https://player.vimeo.com/video/1188780094?background=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1&autoplay=1";
   mainBgIframe.src = finalVideoUrl;
+  // After setting src, initialize player and add resume-on-pause
+  setTimeout(() => {
+    if (mainBgIframe.contentWindow) {
+      bgPlayer = new Vimeo.Player(mainBgIframe);
+      bgPlayer.on("pause", () => {
+        console.log("Background video paused – resuming immediately.");
+        bgPlayer.play();
+      });
+      // Also ensure it's playing after load
+      bgPlayer
+        .play()
+        .catch((e) =>
+          console.log("Auto-play prevented, but will resume on visibility"),
+        );
+    }
+  }, 500);
 }
 
 // ========== PRELOADER HIDE AFTER 7.5 SECONDS ==========
@@ -105,7 +123,7 @@ function hidePreloader() {
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", () => {
     setTimeout(startBackgroundVideo, 7000); // 7 seconds
-    hidePreloader(); // will hide at 7.5 seconds
+    hidePreloader(); // hides at 7.5 seconds
   });
 } else {
   setTimeout(startBackgroundVideo, 7000);
@@ -219,5 +237,5 @@ cards.forEach((card) => {
 });
 
 console.log(
-  "Portfolio ready — background starts at 7s, preloader hides at 7.5s, project videos play on hover, Character Concept cycles.",
+  "Portfolio ready — background video auto‑resumes if paused, starts at 7s, preloader hides at 7.5s, project videos play on hover.",
 );
