@@ -40,7 +40,7 @@ body {
   object-fit: cover;
 }
 
-/* PRELOADER OVERLAY – fullscreen video, no text */
+/* PRELOADER – fullscreen video, hides after 6.5s via JS */
 #preloader {
   position: fixed;
   top: 0;
@@ -193,7 +193,7 @@ h1 {
   gap: 6rem;
 }
 
-/* PROJECT CARD - clean, no border */
+/* PROJECT CARD */
 .project-card {
   position: relative;
   background: rgba(20, 25, 28, 0.7);
@@ -215,7 +215,7 @@ h1 {
   transform: translateY(-4px);
 }
 
-/* Video container and iframe styling */
+/* Video container */
 .project-media {
   width: 100%;
   border-radius: 20px;
@@ -282,7 +282,7 @@ h1 {
   border-bottom-color: white;
 }
 
-/* BIO SECTION – right-aligned like the hero h1 */
+/* BIO SECTION */
 .bio-section {
   max-width: 1000px;
   margin: 6rem auto 4rem auto;
@@ -316,7 +316,7 @@ h1 {
   margin-bottom: 0;
 }
 
-/* FOOTER – updated layout */
+/* FOOTER */
 .portfolio-footer {
   text-align: center;
   margin-top: 3rem;

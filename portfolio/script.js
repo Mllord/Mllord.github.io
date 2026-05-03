@@ -80,46 +80,32 @@ if (bioHeading) {
   });
 }
 
-// ========== PRELOADER HANDLING – PLAY LOADING VIDEO ONCE, THEN REVEAL SITE ==========
-function setupLoadingVideo() {
+// ========== PRELOADER: HIDE AFTER EXACTLY 6500ms ==========
+function setupPreloader() {
   const preloader = document.getElementById("preloader");
-  const loadingIframe = document.getElementById("loadingVideo");
   const mainBgIframe = document.getElementById("mainBgVideo");
-  if (!preloader || !loadingIframe || !mainBgIframe) return;
+  if (!preloader || !mainBgIframe) return;
 
-  // Set final background video URL (it will loop)
+  // Set final background video (loops)
   const finalVideoUrl =
     "https://player.vimeo.com/video/1188780094?background=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1";
   mainBgIframe.src = finalVideoUrl;
 
-  // Use Vimeo Player API to listen for 'ended' event on loading video
-  const player = new Vimeo.Player(loadingIframe);
-
-  // When the loading video finishes, fade out preloader and start main background
-  player.on("ended", function () {
+  // Hide preloader after 6.5 seconds (6500ms)
+  setTimeout(() => {
     preloader.classList.add("hide-preloader");
-    // Remove preloader from DOM after transition
+    // Remove from DOM after transition
     setTimeout(() => {
       if (preloader.parentNode) preloader.style.display = "none";
     }, 1000);
-  });
-
-  // Fallback: if the video never fires 'ended' (e.g., API issue), hide after a safe timeout (video length ~15s)
-  setTimeout(() => {
-    if (preloader && !preloader.classList.contains("hide-preloader")) {
-      preloader.classList.add("hide-preloader");
-      setTimeout(() => {
-        if (preloader.parentNode) preloader.style.display = "none";
-      }, 1000);
-    }
-  }, 20000); // 20 seconds fallback
+  }, 6500);
 }
 
-// Start the loading video process once the page is ready
+// Start the timer as soon as the page loads
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", setupLoadingVideo);
+  document.addEventListener("DOMContentLoaded", setupPreloader);
 } else {
-  setupLoadingVideo();
+  setupPreloader();
 }
 
 // Disable context menu on background
@@ -151,5 +137,5 @@ cards.forEach((card) => {
 });
 
 console.log(
-  "Portfolio ready — loading video plays once, then main background video loops.",
+  "Portfolio ready — preloader hides after 6.5 seconds regardless of video length.",
 );

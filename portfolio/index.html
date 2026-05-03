@@ -20,11 +20,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
-    <!-- Vimeo Player API for advanced control -->
+    <!-- Vimeo Player API (optional, still included for any fallback) -->
     <script src="https://player.vimeo.com/api/player.js"></script>
   </head>
   <body>
-    <!-- MAIN BACKGROUND VIDEO (will be set after loading video finishes) -->
+    <!-- MAIN BACKGROUND VIDEO -->
     <div id="VideoBG">
       <iframe
         id="mainBgVideo"
@@ -36,7 +36,7 @@
       ></iframe>
     </div>
 
-    <!-- PRELOADER – plays loading video once, then disappears -->
+    <!-- PRELOADER – plays loading video, hides after 6.5 seconds -->
     <div id="preloader">
       <iframe
         id="loadingVideo"
@@ -234,7 +234,7 @@
         </div>
       </div>
 
-      <!-- BIO SECTION with heading that moves like h1 -->
+      <!-- BIO SECTION -->
       <div class="bio-section">
         <h2 class="bio-heading">Bio</h2>
         <p class="bio-text">
@@ -260,7 +260,7 @@
         </p>
       </div>
 
-      <!-- FOOTER with email and LinkedIn -->
+      <!-- FOOTER -->
       <div class="portfolio-footer">
         <div class="footer-links">
           <span class="footer-separator">✦</span>
