@@ -80,31 +80,48 @@ if (bioHeading) {
   });
 }
 
-// ========== BACKGROUND VIDEO: START AFTER 7 SECONDS & NEVER PAUSE ==========
+// ========== BACKGROUND VIDEO: FORCE NEVER PAUSE ==========
 let bgPlayer = null;
 
-function startBackgroundVideo() {
-  const mainBgIframe = document.getElementById("mainBgVideo");
-  if (!mainBgIframe) return;
-  const finalVideoUrl =
-    "https://player.vimeo.com/video/1188780094?background=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1&autoplay=1";
-  mainBgIframe.src = finalVideoUrl;
-  // After setting src, initialize player and add resume-on-pause
-  setTimeout(() => {
-    if (mainBgIframe.contentWindow) {
-      bgPlayer = new Vimeo.Player(mainBgIframe);
+function initBackgroundVideo() {
+  const bgIframe = document.getElementById("mainBgVideo");
+  if (!bgIframe) return;
+  // Wait for iframe to load
+  bgIframe.addEventListener("load", () => {
+    try {
+      bgPlayer = new Vimeo.Player(bgIframe);
+      // Ensure it's playing initially
+      bgPlayer.play().catch((e) => console.log("Initial play failed:", e));
+      // Listen for pause and immediately resume
       bgPlayer.on("pause", () => {
-        console.log("Background video paused – resuming immediately.");
+        console.log("Background paused, resuming...");
         bgPlayer.play();
       });
-      // Also ensure it's playing after load
-      bgPlayer
-        .play()
-        .catch((e) =>
-          console.log("Auto-play prevented, but will resume on visibility"),
-        );
+      // Also periodically check if it's playing (as a fallback)
+      setInterval(() => {
+        if (bgPlayer) {
+          bgPlayer
+            .getPaused()
+            .then((paused) => {
+              if (paused) {
+                console.log("Background paused (interval check), resuming...");
+                bgPlayer.play();
+              }
+            })
+            .catch(() => {});
+        }
+      }, 2000);
+    } catch (e) {
+      console.log("Failed to initialize Vimeo player for background:", e);
     }
-  }, 500);
+  });
+}
+
+// Start background video monitoring as soon as possible
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initBackgroundVideo);
+} else {
+  initBackgroundVideo();
 }
 
 // ========== PRELOADER HIDE AFTER 7.5 SECONDS ==========
@@ -118,15 +135,9 @@ function hidePreloader() {
     }, 1000);
   }, 7500);
 }
-
-// Set timers after page loads
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(startBackgroundVideo, 7000); // 7 seconds
-    hidePreloader(); // hides at 7.5 seconds
-  });
+  document.addEventListener("DOMContentLoaded", hidePreloader);
 } else {
-  setTimeout(startBackgroundVideo, 7000);
   hidePreloader();
 }
 
@@ -237,5 +248,5 @@ cards.forEach((card) => {
 });
 
 console.log(
-  "Portfolio ready — background video auto‑resumes if paused, starts at 7s, preloader hides at 7.5s, project videos play on hover.",
+  "Portfolio ready — background video forced to never pause, preloader hides at 7.5s, project videos play on hover.",
 );

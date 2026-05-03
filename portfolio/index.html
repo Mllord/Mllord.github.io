@@ -7,14 +7,12 @@
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
     <title>Milo Nagata — Digital Portfolio</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap"
       rel="stylesheet"
     />
-    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
@@ -23,11 +21,12 @@
     <script src="https://player.vimeo.com/api/player.js"></script>
   </head>
   <body>
-    <!-- MAIN BACKGROUND VIDEO – src will be set after 7 seconds via JavaScript -->
+    <!-- BACKGROUND VIDEO – starts immediately with autoplay -->
     <div id="VideoBG">
       <iframe
         id="mainBgVideo"
         class="bg-vimeo-iframe"
+        src="https://player.vimeo.com/video/1188780094?background=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1&autoplay=1"
         title="Main background"
         frameborder="0"
         allow="autoplay; fullscreen; picture-in-picture"
@@ -36,7 +35,7 @@
       </iframe>
     </div>
 
-    <!-- PRELOADER – plays loading video, hides after 7.5 seconds -->
+    <!-- PRELOADER – on top for 7.5 seconds -->
     <div id="preloader">
       <iframe
         id="loadingVideo"
@@ -64,14 +63,12 @@
       </div>
       <div class="projects-scroll-container">
         <div class="projects-list">
-          <!-- Project 1: Field -->
           <div class="project-card">
             <div class="project-media">
               <iframe
                 id="fieldVideo"
                 class="project-video"
                 src="https://player.vimeo.com/video/1188777905?controls=0&title=0&byline=0&portrait=0&playsinline=1&loop=1&muted=1"
-                title="Field project video"
                 frameborder="0"
                 allow="
                   accelerometer;
@@ -101,14 +98,12 @@
             <a href="#" class="project-link">explore →</a>
           </div>
 
-          <!-- Project 2: Journey -->
           <div class="project-card">
             <div class="project-media">
               <iframe
                 id="journeyVideo"
                 class="project-video"
                 src="https://player.vimeo.com/video/1188778181?controls=0&title=0&byline=0&portrait=0&playsinline=1&loop=1&muted=1"
-                title="Journey project video"
                 frameborder="0"
                 allow="
                   accelerometer;
@@ -138,13 +133,11 @@
             <a href="#" class="project-link">explore →</a>
           </div>
 
-          <!-- Project 3: Deep Web -->
           <div class="project-card">
             <div class="project-media">
               <iframe
                 class="project-video"
                 src="https://mllord.github.io/assignment3/"
-                title="Deep Web project live site"
                 frameborder="0"
                 allow="
                   accelerometer;
@@ -179,14 +172,12 @@
             <a href="#" class="project-link">explore →</a>
           </div>
 
-          <!-- Project 4: Character Concept -->
           <div class="project-card">
             <div class="project-media">
               <iframe
                 id="characterVideo"
                 class="project-video"
                 src="https://player.vimeo.com/video/1188774130?controls=0&title=0&byline=0&portrait=0&playsinline=1&loop=0&muted=1"
-                title="Character Concept video"
                 frameborder="0"
                 allow="
                   accelerometer;
