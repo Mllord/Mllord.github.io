@@ -20,23 +20,24 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
-    <!-- Vimeo Player API -->
     <script src="https://player.vimeo.com/api/player.js"></script>
   </head>
   <body>
-    <!-- MAIN BACKGROUND VIDEO -->
+    <!-- MAIN BACKGROUND VIDEO – src set directly in HTML for immediate autoplay -->
     <div id="VideoBG">
       <iframe
         id="mainBgVideo"
         class="bg-vimeo-iframe"
+        src="https://player.vimeo.com/video/1188780094?background=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1"
         title="Main background"
         frameborder="0"
         allow="autoplay; fullscreen; picture-in-picture"
         allowfullscreen
-      ></iframe>
+      >
+      </iframe>
     </div>
 
-    <!-- PRELOADER – plays loading video, hides after 7 seconds -->
+    <!-- PRELOADER – plays loading video, hides after 7.5 seconds -->
     <div id="preloader">
       <iframe
         id="loadingVideo"
@@ -49,27 +50,22 @@
       </iframe>
     </div>
 
-    <!-- main hero headline -->
     <h1 id="top">
       Digital Designer<br /><br />Milo Nagata<br />Probably Mortal
     </h1>
-
-    <!-- decorative floating letters -->
     <div class="M">M</div>
     <div class="T1">T</div>
     <div class="T2">T</div>
     <div class="N">N</div>
 
-    <!-- PROJECTS SECTION -->
     <div class="container">
       <div class="projects-header">
         <span class="section-label">— SELECTED WORK —</span>
         <h2 class="section-title">PROJECTS</h2>
       </div>
-
       <div class="projects-scroll-container">
         <div class="projects-list">
-          <!-- Project 1: Field (plays on hover, loops) -->
+          <!-- Project 1: Field -->
           <div class="project-card">
             <div class="project-media">
               <iframe
@@ -106,7 +102,7 @@
             <a href="#" class="project-link">explore →</a>
           </div>
 
-          <!-- Project 2: Journey (plays on hover, loops) -->
+          <!-- Project 2: Journey -->
           <div class="project-card">
             <div class="project-media">
               <iframe
@@ -143,7 +139,7 @@
             <a href="#" class="project-link">explore →</a>
           </div>
 
-          <!-- Project 3: Deep Web (external site, no hover control needed) -->
+          <!-- Project 3: Deep Web -->
           <div class="project-card">
             <div class="project-media">
               <iframe
@@ -184,7 +180,7 @@
             <a href="#" class="project-link">explore →</a>
           </div>
 
-          <!-- Project 4: Character Concept (cycles through 3 videos, plays only on hover) -->
+          <!-- Project 4: Character Concept -->
           <div class="project-card">
             <div class="project-media">
               <iframe
@@ -226,7 +222,6 @@
         </div>
       </div>
 
-      <!-- BIO SECTION -->
       <div class="bio-section">
         <h2 class="bio-heading">Bio</h2>
         <p class="bio-text">
@@ -252,7 +247,6 @@
         </p>
       </div>
 
-      <!-- FOOTER -->
       <div class="portfolio-footer">
         <div class="footer-links">
           <span class="footer-separator">✦</span>

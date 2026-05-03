@@ -80,14 +80,6 @@ if (bioHeading) {
   });
 }
 
-// ========== BACKGROUND VIDEO: LOAD IMMEDIATELY ==========
-const mainBgIframe = document.getElementById("mainBgVideo");
-if (mainBgIframe) {
-  const finalVideoUrl =
-    "https://player.vimeo.com/video/1188780094?background=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1";
-  mainBgIframe.src = finalVideoUrl;
-}
-
 // ========== PRELOADER HIDE AFTER 7.5 SECONDS ==========
 function hidePreloader() {
   const preloader = document.getElementById("preloader");
@@ -212,5 +204,5 @@ cards.forEach((card) => {
 });
 
 console.log(
-  "Portfolio ready — background video loads instantly and loops, preloader 7.5s, project videos play on hover, Character Concept cycles all three.",
+  "Portfolio ready — background video loads with HTML src, preloader hides after 7.5s, project videos play on hover, Character Concept cycles all three.",
 );
