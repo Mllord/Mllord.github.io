@@ -80,15 +80,18 @@ if (bioHeading) {
   });
 }
 
-// ========== PRELOADER HIDE AFTER 7.5 SECONDS ==========
-function setupPreloader() {
-  const preloader = document.getElementById("preloader");
-  const mainBgIframe = document.getElementById("mainBgVideo");
-  if (!preloader || !mainBgIframe) return;
-  // Background video: autoplay, loop, muted
+// ========== BACKGROUND VIDEO: LOAD IMMEDIATELY ==========
+const mainBgIframe = document.getElementById("mainBgVideo");
+if (mainBgIframe) {
   const finalVideoUrl =
     "https://player.vimeo.com/video/1188780094?background=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1";
   mainBgIframe.src = finalVideoUrl;
+}
+
+// ========== PRELOADER HIDE AFTER 7.5 SECONDS ==========
+function hidePreloader() {
+  const preloader = document.getElementById("preloader");
+  if (!preloader) return;
   setTimeout(() => {
     preloader.classList.add("hide-preloader");
     setTimeout(() => {
@@ -97,9 +100,9 @@ function setupPreloader() {
   }, 7500);
 }
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", setupPreloader);
+  document.addEventListener("DOMContentLoaded", hidePreloader);
 } else {
-  setupPreloader();
+  hidePreloader();
 }
 
 // ========== HOVER PLAY/PAUSE FOR FIELD & JOURNEY ==========
@@ -120,7 +123,7 @@ function initHoverPlay() {
   }
 }
 
-// ========== CHARACTER CONCEPT: CYCLE THREE VIDEOS + HOVER ==========
+// ========== CHARACTER CONCEPT CYCLING + HOVER ==========
 function initCharacterCycling() {
   const characterIframe = document.getElementById("characterVideo");
   if (!characterIframe) return;
@@ -209,5 +212,5 @@ cards.forEach((card) => {
 });
 
 console.log(
-  "Portfolio ready — background loops, preloader 7.5s, Character Concept cycles all three videos on hover.",
+  "Portfolio ready — background video loads instantly and loops, preloader 7.5s, project videos play on hover, Character Concept cycles all three.",
 );
