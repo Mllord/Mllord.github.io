@@ -1,14 +1,11 @@
-// ========== CUSTOM CURSOR + DYNAMIC TRAIL EFFECT ==========
 (function () {
   const cursor = document.querySelector(".cursor");
   const canvas = document.getElementById("trailCanvas");
   if (!cursor || !canvas) return;
-
   const ctx = canvas.getContext("2d");
   let trail = [];
   let canvasWidth = window.innerWidth;
   let canvasHeight = window.innerHeight;
-
   function resizeCanvas() {
     canvasWidth = window.innerWidth;
     canvasHeight = window.innerHeight;
@@ -17,14 +14,12 @@
   }
   resizeCanvas();
   window.addEventListener("resize", resizeCanvas);
-
   window.addEventListener("mousemove", (e) => {
     cursor.style.left = `${e.clientX}px`;
     cursor.style.top = `${e.clientY}px`;
     trail.push({ x: e.clientX, y: e.clientY, time: Date.now() });
     trail = trail.filter((point) => Date.now() - point.time < 150);
   });
-
   function drawTrail() {
     if (!ctx) return;
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
@@ -34,15 +29,12 @@
       ctx.lineWidth = 1.8;
       ctx.lineCap = "round";
       ctx.moveTo(trail[0].x, trail[0].y);
-      for (let i = 1; i < trail.length; i++) {
-        ctx.lineTo(trail[i].x, trail[i].y);
-      }
+      for (let i = 1; i < trail.length; i++) ctx.lineTo(trail[i].x, trail[i].y);
       ctx.stroke();
     }
     requestAnimationFrame(drawTrail);
   }
   drawTrail();
-
   document.body.addEventListener(
     "mouseleave",
     () => (cursor.style.opacity = "0"),
@@ -53,7 +45,6 @@
   );
 })();
 
-// ========== SMOOTH SCROLL FOR TOP BUTTON ==========
 const topLink = document.querySelector(".top2");
 if (topLink) {
   topLink.addEventListener("click", (e) => {
@@ -62,7 +53,6 @@ if (topLink) {
   });
 }
 
-// ========== PARALLAX TILT ON MAIN HEADING ==========
 const heading = document.querySelector("h1");
 if (heading) {
   document.addEventListener("mousemove", (e) => {
@@ -75,13 +65,10 @@ if (heading) {
   });
 }
 
-// ========== PREVENT CONTEXT MENU ON BACKGROUND (keep clean) ==========
 const bgContainer = document.getElementById("VideoBG");
-if (bgContainer) {
+if (bgContainer)
   bgContainer.addEventListener("contextmenu", (e) => e.preventDefault());
-}
 
-// ========== ENHANCED CURSOR ON PROJECT CARDS ==========
 const cards = document.querySelectorAll(".project-card");
 cards.forEach((card) => {
   card.addEventListener("mouseenter", () => {
@@ -105,5 +92,5 @@ cards.forEach((card) => {
 });
 
 console.log(
-  "Portfolio ready — 20% side spacing | projects with image/video | YouTube background",
+  "Portfolio ready — Vimeo background, updated projects with Vimeo embeds and Deep Web site iframe",
 );
