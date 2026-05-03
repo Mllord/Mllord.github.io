@@ -191,7 +191,7 @@ h1 {
   gap: 6rem;
 }
 
-/* PROJECT CARD – SOFTER CORNERS, TRANSPARENT BORDER DEFAULT */
+/* PROJECT CARD – ROUNDED CORNERS, ANIMATED BORDER */
 .project-card {
   position: relative;
   background: rgba(20, 25, 28, 0.7);
@@ -205,16 +205,11 @@ h1 {
     transform 0.3s,
     background 0.3s,
     box-shadow 0.3s;
-  /* Curved corners */
   border-radius: 24px;
-  /* No visible border by default */
   border: none;
   box-shadow: none;
-  /* Ensure the pseudo-element respects border-radius */
   overflow: hidden;
 }
-
-/* Default border pseudo-element (transparent, thin, same radius) */
 .project-card::before {
   content: "";
   position: absolute;
@@ -222,13 +217,11 @@ h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  border: 1px solid rgba(255, 255, 255, 0); /* fully transparent */
-  border-radius: 24px; /* match card radius */
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 24px;
   pointer-events: none;
   transition: all 0.4s ease;
 }
-
-/* On hover: gradient border + animation + glow */
 .project-card:hover::before {
   border: 2px solid transparent;
   background: linear-gradient(
@@ -249,7 +242,6 @@ h1 {
   animation: borderGlow 3s linear infinite;
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
 }
-
 @keyframes borderGlow {
   0% {
     background-position: 0% 0%;
@@ -258,8 +250,6 @@ h1 {
     background-position: 200% 0%;
   }
 }
-
-/* Additional hover effects */
 .project-card:hover {
   background: rgba(30, 36, 40, 0.8);
   transform: translateY(-4px);
@@ -267,6 +257,7 @@ h1 {
 }
 
 .project-media {
+  position: relative;
   width: 100%;
   border-radius: 20px;
   overflow: hidden;
@@ -280,6 +271,54 @@ h1 {
   height: 100%;
   border: 0;
   pointer-events: auto;
+}
+
+/* CHARACTER CONCEPT BUTTONS – PERFECTLY VERTICALLY CENTERED */
+.char-prev,
+.char-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 2rem;
+  font-family: monospace; /* ensures perfect vertical alignment of arrows */
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  text-align: center;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+.project-media:hover .char-prev,
+.project-media:hover .char-next {
+  opacity: 1;
+}
+.char-prev {
+  left: 16px;
+}
+.char-next {
+  right: 16px;
+}
+.char-prev:hover,
+.char-next:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: white;
+  transform: translateY(-50%) scale(1.05);
+}
+.char-prev:active,
+.char-next:active {
+  transform: translateY(-50%) scale(0.95);
 }
 
 .project-meta {
@@ -486,6 +525,12 @@ canvas {
   .footer-links {
     gap: 0.8rem;
   }
+  .char-prev,
+  .char-next {
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+  }
 }
 @media (max-width: 480px) {
   .project-card {
@@ -493,5 +538,11 @@ canvas {
   }
   .projects-list {
     gap: 3rem;
+  }
+  .char-prev,
+  .char-next {
+    width: 32px;
+    height: 32px;
+    font-size: 1.3rem;
   }
 }

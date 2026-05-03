@@ -53,7 +53,6 @@ if (topLink) {
   });
 }
 
-// Tilt effect for main heading
 const heading = document.querySelector("h1");
 if (heading) {
   document.addEventListener("mousemove", (e) => {
@@ -66,7 +65,6 @@ if (heading) {
   });
 }
 
-// Tilt effect for Bio heading
 const bioHeading = document.querySelector(".bio-heading");
 if (bioHeading) {
   document.addEventListener("mousemove", (e) => {
@@ -80,24 +78,19 @@ if (bioHeading) {
   });
 }
 
-// ========== BACKGROUND VIDEO: FORCE NEVER PAUSE ==========
 let bgPlayer = null;
 
 function initBackgroundVideo() {
   const bgIframe = document.getElementById("mainBgVideo");
   if (!bgIframe) return;
-  // Wait for iframe to load
   bgIframe.addEventListener("load", () => {
     try {
       bgPlayer = new Vimeo.Player(bgIframe);
-      // Ensure it's playing initially
       bgPlayer.play().catch((e) => console.log("Initial play failed:", e));
-      // Listen for pause and immediately resume
       bgPlayer.on("pause", () => {
         console.log("Background paused, resuming...");
         bgPlayer.play();
       });
-      // Also periodically check if it's playing (as a fallback)
       setInterval(() => {
         if (bgPlayer) {
           bgPlayer
@@ -116,15 +109,12 @@ function initBackgroundVideo() {
     }
   });
 }
-
-// Start background video monitoring as soon as possible
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initBackgroundVideo);
 } else {
   initBackgroundVideo();
 }
 
-// ========== PRELOADER HIDE AFTER 7.5 SECONDS ==========
 function hidePreloader() {
   const preloader = document.getElementById("preloader");
   if (!preloader) return;
@@ -141,7 +131,6 @@ if (document.readyState === "loading") {
   hidePreloader();
 }
 
-// ========== HOVER PLAY/PAUSE FOR FIELD & JOURNEY ==========
 function initHoverPlay() {
   const fieldIframe = document.getElementById("fieldVideo");
   if (fieldIframe) {
@@ -159,7 +148,6 @@ function initHoverPlay() {
   }
 }
 
-// ========== CHARACTER CONCEPT CYCLING + HOVER ==========
 function initCharacterCycling() {
   const characterIframe = document.getElementById("characterVideo");
   if (!characterIframe) return;
@@ -173,7 +161,7 @@ function initCharacterCycling() {
     return `https://player.vimeo.com/video/${id}?controls=0&title=0&byline=0&portrait=0&playsinline=1&loop=0&muted=1`;
   }
 
-  function loadVideo(index) {
+  function loadVideo(index, playIfHovered = true) {
     const newSrc = buildUrl(videoIds[index]);
     if (characterIframe.src !== newSrc) {
       characterIframe.src = newSrc;
@@ -185,18 +173,15 @@ function initCharacterCycling() {
       characterPlayer = new Vimeo.Player(characterIframe);
       characterPlayer.on("ended", () => {
         currentIndex = (currentIndex + 1) % videoIds.length;
-        loadVideo(currentIndex);
-        if (isHovered && characterPlayer) {
-          characterPlayer.play();
-        }
+        loadVideo(currentIndex, isHovered);
       });
-      if (isHovered && characterPlayer) {
+      if (isHovered && playIfHovered && characterPlayer) {
         characterPlayer.play();
       }
     }, 300);
   }
 
-  loadVideo(0);
+  loadVideo(0, false);
 
   const card = characterIframe.closest(".project-card");
   card.addEventListener("mouseenter", () => {
@@ -207,6 +192,21 @@ function initCharacterCycling() {
     isHovered = false;
     if (characterPlayer) characterPlayer.pause();
   });
+
+  const prevBtn = document.querySelector(".char-prev");
+  const nextBtn = document.querySelector(".char-next");
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + videoIds.length) % videoIds.length;
+      loadVideo(currentIndex, isHovered);
+    });
+    nextBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % videoIds.length;
+      loadVideo(currentIndex, isHovered);
+    });
+  }
 }
 
 if (document.readyState === "loading") {
@@ -219,12 +219,10 @@ if (document.readyState === "loading") {
   initCharacterCycling();
 }
 
-// Disable context menu on background
 const bgContainer = document.getElementById("VideoBG");
 if (bgContainer)
   bgContainer.addEventListener("contextmenu", (e) => e.preventDefault());
 
-// Enhanced cursor on project cards
 const cards = document.querySelectorAll(".project-card");
 cards.forEach((card) => {
   card.addEventListener("mouseenter", () => {
@@ -248,5 +246,5 @@ cards.forEach((card) => {
 });
 
 console.log(
-  "Portfolio ready — background video forced to never pause, preloader hides at 7.5s, project videos play on hover.",
+  "Portfolio ready — background never pauses, preloader 7.5s, project videos play on hover, Character Concept has centered prev/next buttons.",
 );
