@@ -146,6 +146,13 @@ function initHoverPlay() {
     card.addEventListener("mouseenter", () => journeyPlayer.play());
     card.addEventListener("mouseleave", () => journeyPlayer.pause());
   }
+  const fluidIframe = document.getElementById("fluidVideo");
+  if (fluidIframe) {
+    let fluidPlayer = new Vimeo.Player(fluidIframe);
+    const card = fluidIframe.closest(".project-card");
+    card.addEventListener("mouseenter", () => fluidPlayer.play());
+    card.addEventListener("mouseleave", () => fluidPlayer.pause());
+  }
 }
 
 function initCharacterCycling() {
@@ -246,5 +253,5 @@ cards.forEach((card) => {
 });
 
 console.log(
-  "Portfolio ready — background never pauses, preloader 7.5s, project videos play on hover, Character Concept has centered prev/next buttons.",
+  "Portfolio ready — background never pauses, preloader 7.5s, project videos play on hover, Character Concept cycles with buttons.",
 );

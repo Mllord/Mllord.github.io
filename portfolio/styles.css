@@ -546,3 +546,50 @@ canvas {
     font-size: 1.3rem;
   }
 }
+/* BIO SECTION – now has the same background as project cards */
+.bio-section {
+  max-width: 1000px;
+  margin: 6rem auto 4rem auto;
+  padding: 3rem 2rem; /* same padding as project cards */
+  background: rgba(20, 25, 28, 0.7);
+  backdrop-filter: blur(16px);
+  border-radius: 24px; /* rounded corners like projects */
+  transition:
+    transform 0.3s,
+    background 0.3s,
+    box-shadow 0.3s;
+  text-align: right;
+}
+/* Optional subtle hover effect (like project cards) */
+.bio-section:hover {
+  background: rgba(30, 36, 40, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.bio-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: "Radio Canada", sans-serif;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #fff, #ccc);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+.bio-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f0f0f0; /* lighter for better contrast */
+  margin-bottom: 1.5rem;
+  padding-top: 0;
+  max-width: none;
+}
+.bio-text:last-child {
+  margin-bottom: 0;
+}
