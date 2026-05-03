@@ -80,6 +80,15 @@ if (bioHeading) {
   });
 }
 
+// ========== BACKGROUND VIDEO: START AFTER 7 SECONDS ==========
+function startBackgroundVideo() {
+  const mainBgIframe = document.getElementById("mainBgVideo");
+  if (!mainBgIframe) return;
+  const finalVideoUrl =
+    "https://player.vimeo.com/video/1188780094?background=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1&autoplay=1";
+  mainBgIframe.src = finalVideoUrl;
+}
+
 // ========== PRELOADER HIDE AFTER 7.5 SECONDS ==========
 function hidePreloader() {
   const preloader = document.getElementById("preloader");
@@ -91,9 +100,15 @@ function hidePreloader() {
     }, 1000);
   }, 7500);
 }
+
+// Set timers after page loads
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", hidePreloader);
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(startBackgroundVideo, 7000); // 7 seconds
+    hidePreloader(); // will hide at 7.5 seconds
+  });
 } else {
+  setTimeout(startBackgroundVideo, 7000);
   hidePreloader();
 }
 
@@ -204,5 +219,5 @@ cards.forEach((card) => {
 });
 
 console.log(
-  "Portfolio ready — background video loads with HTML src, preloader hides after 7.5s, project videos play on hover, Character Concept cycles all three.",
+  "Portfolio ready — background starts at 7s, preloader hides at 7.5s, project videos play on hover, Character Concept cycles.",
 );
