@@ -85,6 +85,7 @@ function setupPreloader() {
   const preloader = document.getElementById("preloader");
   const mainBgIframe = document.getElementById("mainBgVideo");
   if (!preloader || !mainBgIframe) return;
+  // Background video: autoplay, loop, muted
   const finalVideoUrl =
     "https://player.vimeo.com/video/1188780094?background=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1";
   mainBgIframe.src = finalVideoUrl;
@@ -93,7 +94,7 @@ function setupPreloader() {
     setTimeout(() => {
       if (preloader.parentNode) preloader.style.display = "none";
     }, 1000);
-  }, 7500); // changed from 7000 to 7500ms
+  }, 7500);
 }
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", setupPreloader);
@@ -124,7 +125,7 @@ function initCharacterCycling() {
   const characterIframe = document.getElementById("characterVideo");
   if (!characterIframe) return;
 
-  const videoIds = ["1188774130", "1188774148", "1188787674"]; // third video ID confirmed
+  const videoIds = ["1188774130", "1188774148", "1188787674"];
   let currentIndex = 0;
   let characterPlayer = null;
   let isHovered = false;
@@ -208,5 +209,5 @@ cards.forEach((card) => {
 });
 
 console.log(
-  "Portfolio ready — preloader 7.5s, Character Concept cycles all three videos on hover.",
+  "Portfolio ready — background loops, preloader 7.5s, Character Concept cycles all three videos on hover.",
 );
