@@ -80,7 +80,7 @@ if (bioHeading) {
   });
 }
 
-// ========== PRELOADER: HIDE AFTER EXACTLY 6500ms ==========
+// ========== PRELOADER: HIDE AFTER EXACTLY 7000ms (7 seconds) ==========
 function setupPreloader() {
   const preloader = document.getElementById("preloader");
   const mainBgIframe = document.getElementById("mainBgVideo");
@@ -91,14 +91,14 @@ function setupPreloader() {
     "https://player.vimeo.com/video/1188780094?background=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1";
   mainBgIframe.src = finalVideoUrl;
 
-  // Hide preloader after 6.5 seconds (6500ms)
+  // Hide preloader after 7 seconds (7000ms)
   setTimeout(() => {
     preloader.classList.add("hide-preloader");
     // Remove from DOM after transition
     setTimeout(() => {
       if (preloader.parentNode) preloader.style.display = "none";
     }, 1000);
-  }, 6500);
+  }, 7000); // <-- changed from 6500 to 7000
 }
 
 // Start the timer as soon as the page loads
@@ -137,5 +137,5 @@ cards.forEach((card) => {
 });
 
 console.log(
-  "Portfolio ready — preloader hides after 6.5 seconds regardless of video length.",
+  "Portfolio ready — preloader hides after 7 seconds. All project videos loop.",
 );
