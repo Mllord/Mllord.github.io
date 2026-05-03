@@ -85,27 +85,76 @@ function setupPreloader() {
   const preloader = document.getElementById("preloader");
   const mainBgIframe = document.getElementById("mainBgVideo");
   if (!preloader || !mainBgIframe) return;
-
   // Set final background video (loops)
   const finalVideoUrl =
     "https://player.vimeo.com/video/1188780094?background=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1";
   mainBgIframe.src = finalVideoUrl;
-
-  // Hide preloader after 7 seconds (7000ms)
+  // Hide preloader after 7 seconds
   setTimeout(() => {
     preloader.classList.add("hide-preloader");
-    // Remove from DOM after transition
     setTimeout(() => {
       if (preloader.parentNode) preloader.style.display = "none";
     }, 1000);
-  }, 7000); // <-- changed from 6500 to 7000
+  }, 7500);
 }
-
-// Start the timer as soon as the page loads
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", setupPreloader);
 } else {
   setupPreloader();
+}
+
+// ========== CHARACTER CONCEPT VIDEO CYCLING ==========
+function initCharacterCycling() {
+  const characterIframe = document.getElementById("characterVideo");
+  if (!characterIframe) return;
+  // List of video IDs to cycle through (in order)
+  const videoIds = [
+    "1188774130", // original
+    "1188774148", // new second video
+    "1188787674", // new third video
+  ];
+  let currentIndex = 0;
+  // Base URL template
+  const baseUrl = (id) =>
+    `https://player.vimeo.com/video/${id}?background=1&autoplay=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1&loop=0`;
+  // Function to load next video
+  function loadNextVideo() {
+    currentIndex = (currentIndex + 1) % videoIds.length;
+    const newSrc = baseUrl(videoIds[currentIndex]);
+    characterIframe.src = newSrc;
+  }
+  // Use Vimeo Player API to listen for 'ended' event
+  let player = new Vimeo.Player(characterIframe);
+  player.on("ended", function () {
+    loadNextVideo();
+    // Re-attach player to new iframe after src change
+    setTimeout(() => {
+      player = new Vimeo.Player(characterIframe);
+      player.on("ended", loadNextVideo);
+    }, 500);
+  });
+  // Fallback: if iframe is reloaded due to visibility changes, reattach
+  const observer = new MutationObserver(() => {
+    if (
+      characterIframe.src &&
+      characterIframe.src !== baseUrl(videoIds[currentIndex])
+    ) {
+      // Sync if needed, but we only change via loadNextVideo
+    }
+    player = new Vimeo.Player(characterIframe);
+    player.off("ended");
+    player.on("ended", loadNextVideo);
+  });
+  observer.observe(characterIframe, {
+    attributes: true,
+    attributeFilter: ["src"],
+  });
+}
+// Start cycling once the page is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initCharacterCycling);
+} else {
+  initCharacterCycling();
 }
 
 // Disable context menu on background
@@ -137,5 +186,5 @@ cards.forEach((card) => {
 });
 
 console.log(
-  "Portfolio ready — preloader hides after 7 seconds. All project videos loop.",
+  "Portfolio ready — preloader hides after 7 seconds, Character Concept cycles through 3 videos.",
 );
