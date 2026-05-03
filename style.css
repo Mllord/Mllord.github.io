@@ -179,7 +179,7 @@ nav a:hover {
   color: #8d99ae;
 }
 
-/* PROJECTS - FLEX LAYOUT WITH LIMITED OVERLAP */
+/* PROJECTS - alternating side via DOM order, no overlap */
 .projects-container {
   max-width: 1400px;
   margin: 0 auto;
@@ -188,8 +188,7 @@ nav a:hover {
 .project {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0;
+  gap: 3rem;
   margin-bottom: 56rem;
   min-height: 70vh;
 }
@@ -197,7 +196,6 @@ nav a:hover {
   flex: 1;
   max-width: 55%;
   position: relative;
-  z-index: 1;
   border-radius: 0;
   overflow: hidden;
 }
@@ -223,52 +221,11 @@ nav a:hover {
 }
 .project-text {
   flex: 1;
-  max-width: 50%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
-  padding: 1.5rem;
+  max-width: 45%;
+  background: transparent;
+  padding: 0;
   border: none;
-  position: relative;
-  z-index: 2;
-  border-radius: 0;
-  transition: all 0.3s ease;
 }
-/* Optional: slight border to separate from video */
-.project-text {
-  border-left: 2px solid #ef233c;
-}
-
-/* Overlap control: negative margin limited to ~5% (at most 10% of text width) */
-.project.image-left .project-text {
-  margin-left: -5%;
-}
-.project.image-left .project-image {
-  margin-right: -5%;
-}
-.project.image-right .project-image {
-  margin-left: -5%;
-}
-.project.image-right .project-text {
-  margin-right: -5%;
-}
-
-/* Slightly tighter on larger screens to ensure never >10% */
-@media (min-width: 1200px) {
-  .project.image-left .project-text {
-    margin-left: -3%;
-  }
-  .project.image-left .project-image {
-    margin-right: -3%;
-  }
-  .project.image-right .project-image {
-    margin-left: -3%;
-  }
-  .project.image-right .project-text {
-    margin-right: -3%;
-  }
-}
-
-/* TYPOGRAPHY */
 .project-title {
   font-family: "Playfair Display", serif;
   font-size: clamp(2.5rem, 3.5vw, 4rem);
@@ -280,7 +237,7 @@ nav a:hover {
 }
 .project-desc {
   font-size: 1.3rem;
-  color: #e0dcd5;
+  color: #8d99ae;
   margin-bottom: 1.5rem;
   line-height: 1.4;
 }
@@ -290,12 +247,12 @@ nav a:hover {
   gap: 0.8rem;
 }
 .project-tags span {
-  background: rgba(239, 35, 60, 0.25);
+  background: rgba(239, 35, 60, 0.15);
   padding: 0.3rem 1.2rem;
   border-radius: 40px;
   font-size: 0.8rem;
-  border: 0.5px solid rgba(239, 35, 60, 0.5);
-  color: #edf2f4;
+  border: 0.5px solid rgba(239, 35, 60, 0.3);
+  color: #8d99ae;
 }
 
 /* FOOTER */
@@ -350,27 +307,18 @@ nav a:hover {
   }
   .project {
     margin-bottom: 30rem;
+    gap: 2rem;
   }
 }
 @media (max-width: 800px) {
   .project {
     flex-direction: column;
     margin-bottom: 15rem;
-    min-height: auto;
+    gap: 2rem;
   }
   .project-image,
   .project-text {
     max-width: 90%;
-    margin: 1rem auto;
-  }
-  .project.image-left .project-text,
-  .project.image-right .project-text,
-  .project.image-left .project-image,
-  .project.image-right .project-image {
-    margin: 1rem auto;
-  }
-  .project-text {
-    padding: 1rem;
   }
   .project-title {
     font-size: 2.5rem;

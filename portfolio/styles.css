@@ -1,0 +1,399 @@
+/* ---------- RESET & BASE ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+  font-family: "Encode Sans Expanded", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  background-color: #151a1b;
+  color: white;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ---------- YOUTUBE BACKGROUND ---------- */
+#VideoBG {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -100;
+  opacity: 0.5;
+  pointer-events: none;
+  background-color: #000;
+}
+
+.bg-youtube-iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  border: 0;
+  pointer-events: none;
+}
+
+/* ---------- TYPOGRAPHY & HEADER ---------- */
+h1 {
+  padding-top: 22rem;
+  padding-bottom: 5rem;
+  text-align: right;
+  margin: auto;
+  max-width: 1000px;
+  justify-content: right;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 5;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+/* ---------- DECORATIVE LETTERS ---------- */
+.M {
+  position: fixed;
+  left: 0;
+  top: 0;
+  font-size: 13rem;
+  font-family: "Radio Canada", sans-serif;
+  font-weight: 700;
+  transform: translate(-10%, -22%);
+  z-index: 2;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.N {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  font-size: 13rem;
+  font-family: "Radio Canada", sans-serif;
+  font-weight: 700;
+  transform: translate(-11%, 21%);
+  z-index: 2;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.T1 {
+  position: fixed;
+  right: 5%;
+  bottom: 45%;
+  transform: rotate(90deg);
+  font-size: 3rem;
+  font-family: "Encode Sans Expanded", sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  z-index: 2;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.T2 {
+  position: fixed;
+  left: 5%;
+  bottom: 45%;
+  transform: rotate(270deg);
+  font-size: 3rem;
+  font-family: "Encode Sans Expanded", sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  z-index: 2;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ---------- CONTAINER WITH 20% SPACING ON EITHER SIDE ---------- */
+.container {
+  max-width: 1400px;
+  margin: 4rem auto 8rem auto;
+  /* 20% space on left and right on large screens */
+  padding-left: 20%;
+  padding-right: 20%;
+  position: relative;
+  z-index: 5;
+}
+
+/* On smaller screens reduce padding to maintain readability */
+@media (max-width: 1200px) {
+  .container {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 5%;
+    padding-right: 5%;
+    margin: 2rem auto 5rem auto;
+  }
+}
+
+/* ---------- PROJECTS HEADER ---------- */
+.projects-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-label {
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #aaa;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 600;
+  font-family: "Radio Canada", sans-serif;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #fff, #ccc);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* ---------- PROJECT GRID ---------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 5rem;
+}
+
+/* ---------- PROJECT CARD WITH MEDIA (IMAGE / VIDEO) ---------- */
+.project-card {
+  background: rgba(20, 25, 28, 0.75);
+  backdrop-filter: blur(8px);
+  border-radius: 28px;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  background: rgba(30, 36, 40, 0.85);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 28px 40px -18px rgba(0, 0, 0, 0.5);
+}
+
+/* Media container for images or videos */
+.project-media {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+  background: #0a0c0e;
+  aspect-ratio: 16 / 9;
+}
+
+.project-media img,
+.project-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-media img,
+.project-card:hover .project-media video {
+  transform: scale(1.03);
+}
+
+.project-meta {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #bbb;
+  margin-bottom: 0.75rem;
+}
+
+.project-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-family: "Radio Canada", sans-serif;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+  color: #fff;
+}
+
+.project-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #ddd;
+  margin-bottom: 1.2rem;
+  padding-top: 0;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-tags span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 0.8rem;
+  border-radius: 40px;
+  font-size: 0.7rem;
+  letter-spacing: 0.3px;
+  font-weight: 300;
+}
+
+.project-link {
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 2px;
+  transition:
+    opacity 0.2s,
+    border-color 0.2s;
+  display: inline-block;
+}
+
+.project-link:hover {
+  opacity: 0.8;
+  border-bottom-color: white;
+}
+
+/* ---------- PORTFOLIO FOOTER ---------- */
+.portfolio-footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.portfolio-footer p {
+  font-size: 0.85rem;
+  color: #ccc;
+  padding-top: 0;
+}
+
+.portfolio-footer a {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px dotted #aaa;
+}
+
+.portfolio-footer a:hover {
+  border-bottom-color: white;
+}
+
+/* ---------- SCROLL TO TOP BUTTON ---------- */
+.top2 {
+  color: white;
+  position: fixed;
+  right: 6%;
+  bottom: 5%;
+  transform: rotate(270deg);
+  font-size: 3rem;
+  font-family: "Encode Sans Expanded", sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  text-decoration: none;
+  z-index: 20;
+  transition: opacity 0.2s ease;
+}
+
+.top2:hover {
+  opacity: 0.7;
+}
+
+/* ---------- CUSTOM CURSOR + TRAIL CANVAS ---------- */
+.cursor {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  border: 1px solid white;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition:
+    width 0.1s,
+    height 0.1s;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ---------- RESPONSIVE REFINEMENTS ---------- */
+@media (max-width: 900px) {
+  .projects-grid {
+    gap: 1.5rem;
+  }
+  .project-title {
+    font-size: 1.3rem;
+  }
+  .container {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    padding-top: 15rem;
+    font-size: 1.2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .M,
+  .N {
+    font-size: 7rem;
+  }
+  .T1,
+  .T2 {
+    font-size: 2rem;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .container {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-card {
+    padding: 1.2rem;
+  }
+  .top2 {
+    font-size: 2rem;
+    right: 5%;
+    bottom: 4%;
+  }
+}

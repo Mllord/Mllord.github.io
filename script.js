@@ -39,7 +39,6 @@ const projectsData = [
   },
 ];
 
-// Helper: convert YouTube URLs to embed, or return original URL for live sites
 function getEmbedUrl(url) {
   if (!url) return null;
   if (url.includes("/embed/")) return url;
@@ -52,10 +51,9 @@ function getEmbedUrl(url) {
     videoId = url.split("shorts/")[1].split("?")[0];
   }
   if (videoId) return `https://www.youtube.com/embed/${videoId}`;
-  return url; // for live websites (non-YouTube)
+  return url;
 }
 
-// Generate projects with flex layout and limited overlap (using side classes)
 function generateProjects() {
   const container = document.querySelector(".projects-container");
   if (!container) return;
@@ -65,17 +63,10 @@ function generateProjects() {
     const projectDiv = document.createElement("div");
     projectDiv.className = "project";
 
-    // Determine side: first two fixed, rest random
-    let side;
-    if (idx === 0)
-      side = "left"; // Field: image left
-    else if (idx === 1)
-      side = "right"; // Journey: image right
-    else side = Math.random() > 0.5 ? "left" : "right";
+    // Alternating side: image on left for even index (0,2,4), right for odd (1,3)
+    const isImageLeft = idx % 2 === 0;
 
-    projectDiv.classList.add(side === "left" ? "image-left" : "image-right");
-
-    // Image container (video/website iframe)
+    // Image container
     const imgDiv = document.createElement("div");
     imgDiv.className = "project-image";
     const placeholder = document.createElement("div");
@@ -94,22 +85,16 @@ function generateProjects() {
       iframe.setAttribute("allowfullscreen", true);
       iframe.style.width = "100%";
       iframe.style.height = "100%";
-      iframe.style.objectFit = "cover";
+      iframe.style.border = "none";
       placeholder.appendChild(iframe);
-    } else if (proj.icon) {
-      placeholder.innerHTML = `<i class="fas ${proj.icon}"></i>`;
     } else {
       placeholder.innerHTML = `<i class="fas fa-cube"></i>`;
     }
     imgDiv.appendChild(placeholder);
 
-    // Text container with background and blur
+    // Text container
     const textDiv = document.createElement("div");
     textDiv.className = "project-text";
-    textDiv.style.background = "rgba(0,0,0,0.6)";
-    textDiv.style.backdropFilter = "blur(8px)";
-    textDiv.style.padding = "1.5rem";
-    textDiv.style.borderLeft = "2px solid #ef233c";
 
     const title = document.createElement("h2");
     title.className = "project-title";
@@ -129,8 +114,8 @@ function generateProjects() {
     textDiv.appendChild(desc);
     textDiv.appendChild(tagsDiv);
 
-    // Append in correct order for flex
-    if (side === "left") {
+    // Append in order to achieve alternating side
+    if (isImageLeft) {
       projectDiv.appendChild(imgDiv);
       projectDiv.appendChild(textDiv);
     } else {
@@ -142,7 +127,7 @@ function generateProjects() {
   });
 }
 
-// ---------- PARALLAX (unchanged) ----------
+// ---------- PARALLAX ----------
 function initParallax() {
   const images = document.querySelectorAll(".project-image");
   const texts = document.querySelectorAll(".project-text");
@@ -179,7 +164,7 @@ function initParallax() {
   });
 }
 
-// ---------- RANDOM LETTER SCRAMBLE (unchanged) ----------
+// ---------- RANDOM LETTER SCRAMBLE ----------
 function initScrambleTitles() {
   const titles = document.querySelectorAll('[data-scramble="true"]');
   titles.forEach((titleElem) => {
@@ -242,7 +227,7 @@ function initScrambleTitles() {
   });
 }
 
-// ---------- CUSTOM CURSOR WITH TRAIL ----------
+// ---------- CUSTOM CURSOR ----------
 function initCustomCursor() {
   const mainCursor = document.querySelector(".cursor-main");
   const trailCursor = document.querySelector(".cursor-trail");
@@ -307,7 +292,7 @@ window.addEventListener("load", () => {
   }
 });
 
-// Smooth anchor scroll for navigation
+// Smooth scroll nav
 document.querySelectorAll(".nav-link").forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
