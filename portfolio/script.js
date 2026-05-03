@@ -53,6 +53,7 @@ if (topLink) {
   });
 }
 
+// Tilt effect for main heading
 const heading = document.querySelector("h1");
 if (heading) {
   document.addEventListener("mousemove", (e) => {
@@ -65,10 +66,57 @@ if (heading) {
   });
 }
 
+// Tilt effect for Bio heading
+const bioHeading = document.querySelector(".bio-heading");
+if (bioHeading) {
+  document.addEventListener("mousemove", (e) => {
+    const xAxisBio = (window.innerWidth / 2 - e.pageX) / 45;
+    const yAxisBio = (window.innerHeight / 2 - e.pageY) / 45;
+    bioHeading.style.transform = `perspective(600px) rotateY(${xAxisBio}deg) rotateX(${yAxisBio * 0.3}deg)`;
+  });
+  document.body.addEventListener("mouseleave", () => {
+    bioHeading.style.transform =
+      "perspective(600px) rotateY(0deg) rotateX(0deg)";
+  });
+}
+
+// ========== PRELOADER AND BACKGROUND VIDEO SWAP ==========
+function initBackgroundAndPreloader() {
+  const preloader = document.getElementById("preloader");
+  const mainBgIframe = document.getElementById("mainBgVideo");
+  if (!preloader || !mainBgIframe) return;
+
+  // Set the final background video source
+  finalVideoUrl =
+    "https://player.vimeo.com/video/1188780094?background=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1";
+  mainBgIframe.src = finalVideoUrl;
+
+  // Wait for page fully loaded (including all iframes)
+  window.addEventListener("load", function () {
+    // Small extra delay to ensure iframes are streaming
+    setTimeout(() => {
+      preloader.classList.add("hide-preloader");
+      // Optionally remove preloader from DOM after transition
+      setTimeout(() => {
+        if (preloader.parentNode) preloader.style.display = "none";
+      }, 1000);
+    }, 500);
+  });
+}
+
+// Also handle the case where load event already fired (cached)
+if (document.readyState === "complete") {
+  initBackgroundAndPreloader();
+} else {
+  window.addEventListener("load", initBackgroundAndPreloader);
+}
+
+// Disable context menu on background
 const bgContainer = document.getElementById("VideoBG");
 if (bgContainer)
   bgContainer.addEventListener("contextmenu", (e) => e.preventDefault());
 
+// Enhanced cursor on project cards
 const cards = document.querySelectorAll(".project-card");
 cards.forEach((card) => {
   card.addEventListener("mouseenter", () => {
@@ -92,5 +140,5 @@ cards.forEach((card) => {
 });
 
 console.log(
-  "Portfolio ready — Vimeo background, updated projects with Vimeo embeds and Deep Web site iframe",
+  "Portfolio ready — preloader with loading video, final background video set after load.",
 );

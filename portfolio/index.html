@@ -22,20 +22,33 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- VIMEO BACKGROUND (fullscreen, no overlays) -->
+    <!-- MAIN BACKGROUND VIDEO (will be set after preloader) -->
     <div id="VideoBG">
       <iframe
+        id="mainBgVideo"
         class="bg-vimeo-iframe"
-        src="https://player.vimeo.com/video/1188774118?background=1&loop=1&muted=1"
-        title="Vimeo background portfolio"
+        title="Vimeo background"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <!-- PRELOADER – shows loading video until main content is ready -->
+    <div id="preloader">
+      <iframe
+        class="preloader-video"
+        src="https://player.vimeo.com/video/1188774696?background=1&autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0"
+        title="Loading video"
         frameborder="0"
         allow="autoplay; fullscreen; picture-in-picture"
         allowfullscreen
       >
       </iframe>
+      <div class="preloader-text">loading portfolio...</div>
     </div>
 
-    <!-- main hero headline -->
+    <!-- main hero headline with tilt effect -->
     <h1 id="top">
       Digital Designer<br /><br />Milo Nagata<br />Probably Mortal
     </h1>
@@ -220,9 +233,51 @@
         </div>
       </div>
 
+      <!-- BIO SECTION with heading that moves like h1 -->
+      <div class="bio-section">
+        <h2 class="bio-heading">Bio</h2>
+        <p class="bio-text">
+          I’m an Australian-Japanese 3D designer focused on creating immersive
+          game worlds and characters. I work across both character and
+          environment design, using tools such as Blender, Maya, Unity, and
+          Unreal Engine to build detailed, interactive assets that bring digital
+          spaces to life.
+        </p>
+        <p class="bio-text">
+          My practice is driven by world-building, crafting environments and
+          characters that feel cohesive, atmospheric, and grounded within a
+          larger narrative. From stylised assets to more realistic forms, I aim
+          to balance strong visual design with technical execution, ensuring my
+          work translates effectively into real-time engines.
+        </p>
+        <p class="bio-text">
+          I approach every project with a results-driven mindset, combining
+          creativity with discipline to see ideas through from concept to
+          completion. Constantly refining my skills and exploring new
+          techniques, I’m focused on pushing the quality of my work while
+          contributing meaningfully to game development teams.
+        </p>
+      </div>
+
+      <!-- FOOTER with email and LinkedIn -->
       <div class="portfolio-footer">
-        <p>
-          ✦ Open for collaborations — <a href="#">hello@milonagata.design</a>
+        <div class="footer-links">
+          <span class="footer-separator">✦</span>
+          <a href="mailto:milonagata@gmail.com" class="footer-email"
+            >milonagata@gmail.com</a
+          >
+          <span class="footer-separator">✦</span>
+          <a
+            href="https://www.linkedin.com/in/milonagata/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-linkedin"
+            >LinkedIn</a
+          ><span class="footer-separator">✦</span>
+        </div>
+        <p class="footer-copy">
+          <span class="footer-separator">✦</span> Open for collaborations
+          <span class="footer-separator">✦</span>
         </p>
       </div>
     </div>

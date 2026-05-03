@@ -160,7 +160,7 @@ h1 {
   gap: 6rem;
 }
 
-/* PROJECT CARD - no background color, just subtle overlay */
+/* PROJECT CARD - clean, no border */
 .project-card {
   position: relative;
   background: rgba(20, 25, 28, 0.7);
@@ -177,7 +177,6 @@ h1 {
   border-radius: 0;
   box-shadow: none;
 }
-
 .project-card:hover {
   background: rgba(30, 36, 40, 0.8);
   transform: translateY(-4px);
@@ -250,22 +249,63 @@ h1 {
   border-bottom-color: white;
 }
 
-/* FOOTER */
+/* BIO SECTION – right-aligned like the hero h1 */
+.bio-section {
+  max-width: 1000px;
+  margin: 6rem auto 4rem auto;
+  text-align: right;
+  padding: 0 1rem;
+}
+.bio-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  margin-bottom: 1.5rem;
+  padding-top: 0;
+  max-width: none;
+}
+.bio-text:last-child {
+  margin-bottom: 0;
+}
+
+/* FOOTER – updated layout */
 .portfolio-footer {
   text-align: center;
-  margin-top: 5rem;
-  padding-top: 3rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
-.portfolio-footer p {
-  font-size: 0.85rem;
-  color: #ccc;
-  padding-top: 0;
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
-.portfolio-footer a {
+.footer-email,
+.footer-linkedin {
   color: white;
   text-decoration: none;
-  border-bottom: 1px dotted #aaa;
+  font-size: 0.9rem;
+  font-weight: 400;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.4);
+  transition: opacity 0.2s;
+}
+.footer-email:hover,
+.footer-linkedin:hover {
+  opacity: 0.8;
+  border-bottom-color: white;
+}
+.footer-separator {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+}
+.footer-copy {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 0.5rem;
+  padding-top: 0;
 }
 
 /* SCROLL TO TOP */
@@ -338,6 +378,16 @@ canvas {
   .projects-list {
     gap: 4rem;
   }
+  .bio-section {
+    margin: 4rem auto 3rem auto;
+    text-align: left;
+  }
+  .bio-text {
+    font-size: 0.9rem;
+  }
+  .footer-links {
+    gap: 1rem;
+  }
 }
 @media (max-width: 480px) {
   .project-card {
@@ -346,4 +396,83 @@ canvas {
   .projects-list {
     gap: 3rem;
   }
+}
+/* BIO SECTION – right-aligned like the hero h1 */
+.bio-section {
+  max-width: 1000px;
+  margin: 6rem auto 4rem auto;
+  text-align: right;
+  padding: 0 1rem;
+}
+.bio-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: "Radio Canada", sans-serif;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #fff, #ccc);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+.bio-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  margin-bottom: 1.5rem;
+  padding-top: 0;
+  max-width: none;
+}
+.bio-text:last-child {
+  margin-bottom: 0;
+}
+/* PRELOADER OVERLAY */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    opacity 1s ease,
+    visibility 1s ease;
+  opacity: 1;
+  visibility: visible;
+}
+#preloader.hide-preloader {
+  opacity: 0;
+  visibility: hidden;
+}
+.preloader-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+  pointer-events: none;
+}
+.preloader-text {
+  position: relative;
+  z-index: 10;
+  font-family: "Encode Sans Expanded", monospace;
+  font-size: 1rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
 }
