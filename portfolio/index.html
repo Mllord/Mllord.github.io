@@ -20,32 +20,33 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
+    <!-- Vimeo Player API for advanced control -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
   </head>
   <body>
-    <!-- MAIN BACKGROUND VIDEO (will be set after preloader) -->
+    <!-- MAIN BACKGROUND VIDEO (will be set after loading video finishes) -->
     <div id="VideoBG">
       <iframe
         id="mainBgVideo"
         class="bg-vimeo-iframe"
-        title="Vimeo background"
+        title="Main background"
         frameborder="0"
         allow="autoplay; fullscreen; picture-in-picture"
         allowfullscreen
       ></iframe>
     </div>
 
-    <!-- PRELOADER – shows loading video until main content is ready -->
+    <!-- PRELOADER – plays loading video once, then disappears -->
     <div id="preloader">
       <iframe
+        id="loadingVideo"
         class="preloader-video"
-        src="https://player.vimeo.com/video/1188774696?background=1&autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0"
-        title="Loading video"
+        src="https://player.vimeo.com/video/1188774696?autoplay=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1&loop=0"
         frameborder="0"
         allow="autoplay; fullscreen; picture-in-picture"
         allowfullscreen
       >
       </iframe>
-      <div class="preloader-text">loading portfolio...</div>
     </div>
 
     <!-- main hero headline with tilt effect -->

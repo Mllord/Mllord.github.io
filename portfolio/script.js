@@ -80,35 +80,46 @@ if (bioHeading) {
   });
 }
 
-// ========== PRELOADER AND BACKGROUND VIDEO SWAP ==========
-function initBackgroundAndPreloader() {
+// ========== PRELOADER HANDLING – PLAY LOADING VIDEO ONCE, THEN REVEAL SITE ==========
+function setupLoadingVideo() {
   const preloader = document.getElementById("preloader");
+  const loadingIframe = document.getElementById("loadingVideo");
   const mainBgIframe = document.getElementById("mainBgVideo");
-  if (!preloader || !mainBgIframe) return;
+  if (!preloader || !loadingIframe || !mainBgIframe) return;
 
-  // Set the final background video source
-  finalVideoUrl =
+  // Set final background video URL (it will loop)
+  const finalVideoUrl =
     "https://player.vimeo.com/video/1188780094?background=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1";
   mainBgIframe.src = finalVideoUrl;
 
-  // Wait for page fully loaded (including all iframes)
-  window.addEventListener("load", function () {
-    // Small extra delay to ensure iframes are streaming
+  // Use Vimeo Player API to listen for 'ended' event on loading video
+  const player = new Vimeo.Player(loadingIframe);
+
+  // When the loading video finishes, fade out preloader and start main background
+  player.on("ended", function () {
+    preloader.classList.add("hide-preloader");
+    // Remove preloader from DOM after transition
     setTimeout(() => {
+      if (preloader.parentNode) preloader.style.display = "none";
+    }, 1000);
+  });
+
+  // Fallback: if the video never fires 'ended' (e.g., API issue), hide after a safe timeout (video length ~15s)
+  setTimeout(() => {
+    if (preloader && !preloader.classList.contains("hide-preloader")) {
       preloader.classList.add("hide-preloader");
-      // Optionally remove preloader from DOM after transition
       setTimeout(() => {
         if (preloader.parentNode) preloader.style.display = "none";
       }, 1000);
-    }, 500);
-  });
+    }
+  }, 20000); // 20 seconds fallback
 }
 
-// Also handle the case where load event already fired (cached)
-if (document.readyState === "complete") {
-  initBackgroundAndPreloader();
+// Start the loading video process once the page is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", setupLoadingVideo);
 } else {
-  window.addEventListener("load", initBackgroundAndPreloader);
+  setupLoadingVideo();
 }
 
 // Disable context menu on background
@@ -140,5 +151,5 @@ cards.forEach((card) => {
 });
 
 console.log(
-  "Portfolio ready — preloader with loading video, final background video set after load.",
+  "Portfolio ready — loading video plays once, then main background video loops.",
 );
