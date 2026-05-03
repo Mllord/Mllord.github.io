@@ -40,7 +40,7 @@ body {
   object-fit: cover;
 }
 
-/* PRELOADER – fullscreen video, hides after 6.5s via JS */
+/* PRELOADER */
 #preloader {
   position: fixed;
   top: 0;
@@ -138,7 +138,7 @@ h1 {
   pointer-events: none;
 }
 
-/* CONTAINER WITH 20% SIDE SPACING */
+/* CONTAINER 20% SIDE SPACING */
 .container {
   max-width: 1400px;
   margin: 2rem auto 6rem auto;
@@ -161,7 +161,6 @@ h1 {
   }
 }
 
-/* PROJECTS HEADER */
 .projects-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -186,14 +185,12 @@ h1 {
   text-transform: uppercase;
 }
 
-/* PROJECT LIST - INCREASED SPACING */
 .projects-list {
   display: flex;
   flex-direction: column;
   gap: 6rem;
 }
 
-/* PROJECT CARD */
 .project-card {
   position: relative;
   background: rgba(20, 25, 28, 0.7);
@@ -215,7 +212,6 @@ h1 {
   transform: translateY(-4px);
 }
 
-/* Video container */
 .project-media {
   width: 100%;
   border-radius: 20px;
@@ -282,7 +278,6 @@ h1 {
   border-bottom-color: white;
 }
 
-/* BIO SECTION */
 .bio-section {
   max-width: 1000px;
   margin: 6rem auto 4rem auto;
@@ -316,7 +311,6 @@ h1 {
   margin-bottom: 0;
 }
 
-/* FOOTER */
 .portfolio-footer {
   text-align: center;
   margin-top: 3rem;
@@ -356,7 +350,6 @@ h1 {
   padding-top: 0;
 }
 
-/* SCROLL TO TOP */
 .top2 {
   color: white;
   position: fixed;
@@ -374,7 +367,6 @@ h1 {
   opacity: 0.7;
 }
 
-/* CUSTOM CURSOR & TRAIL */
 .cursor {
   position: fixed;
   width: 5px;
@@ -399,7 +391,6 @@ canvas {
   z-index: 9998;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
   h1 {
     padding-top: 15rem;
