@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none;
   font-family: "Encode Sans Expanded", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -558,7 +557,7 @@ canvas {
     transform 0.3s,
     background 0.3s,
     box-shadow 0.3s;
-  text-align: right;
+  text-align: left;
 }
 /* Optional subtle hover effect (like project cards) */
 .bio-section:hover {
