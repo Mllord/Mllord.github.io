@@ -76,7 +76,7 @@ function hidePreloader() {
     setTimeout(() => {
       if (preloader.parentNode) preloader.style.display = "none";
     }, 1000);
-  }, 7500);
+  }, 8000);
 }
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", hidePreloader);
