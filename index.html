@@ -2,80 +2,315 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Milo Nagata — Digital Designer & Artist</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Milo Nagata — Digital Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://player.vimeo.com/api/player.js"></script>
   </head>
   <body>
-    <div id="cursor-container">
-      <div class="cursor-main"></div>
-      <div class="cursor-trail"></div>
+    <!-- BACKGROUND VIDEO – updated to new one -->
+    <div id="VideoBG">
+      <iframe
+        id="mainBgVideo"
+        class="bg-vimeo-iframe"
+        src="https://player.vimeo.com/video/1188803562?background=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1&autoplay=1"
+        title="Main background"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
     </div>
 
-    <div class="preloader" id="preloader">
-      <div class="preloader-shape"></div>
-      <div class="preloader-label">digital designer & artist</div>
+    <!-- PRELOADER – stays for 7.5s -->
+    <div id="preloader">
+      <iframe
+        id="loadingVideo"
+        class="preloader-video"
+        src="https://player.vimeo.com/video/1188774696?autoplay=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1&loop=0"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
     </div>
 
-    <div class="site-wrapper">
-      <header class="site-header">
-        <div class="container header-flex">
-          <div class="logo">
-            <a href="#">MILO<span>NAGATA</span></a>
-          </div>
-          <nav>
-            <ul>
-              <li><a href="#work" class="nav-link">Work</a></li>
-              <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+    <h1 id="top">
+      Digital Designer<br /><br />Milo Nagata<br />Probably Mortal
+    </h1>
+    <div class="M">M</div>
+    <div class="T1">T</div>
+    <div class="T2">T</div>
+    <div class="N">N</div>
 
-      <main>
-        <section class="hero">
-          <div class="hero-bg"></div>
-          <div class="container hero-inner">
-            <h1>digital designer<br /><span class="accent">& artist</span></h1>
-            <p>concept art · 3D Environments · UI/UX · motion design</p>
-          </div>
-        </section>
-
-        <div id="work" class="projects-container"></div>
-
-        <footer class="footer" id="contact">
-          <div class="container footer-inner">
-            <div class="footer-brand">MILO</div>
-            <div class="footer-contact">
-              <a href="mailto:milonagata@gmail.com" class="email"
-                >milonagata@gmail.com</a
+    <div class="container">
+      <div class="projects-header">
+        <span class="section-label">— SELECTED WORK —</span>
+        <h2 class="section-title">PROJECTS</h2>
+      </div>
+      <div class="projects-scroll-container">
+        <div class="projects-list">
+          <!-- Project 1: Field -->
+          <div class="project-card">
+            <div class="project-media">
+              <iframe
+                id="fieldVideo"
+                class="project-video"
+                src="https://player.vimeo.com/video/1188777905?controls=0&title=0&byline=0&portrait=0&playsinline=1&loop=1&muted=1"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
               >
-              <div class="social">
-                <a
-                  href="https://www.linkedin.com/in/MiloNagata"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="email"
-                  ><i class="fab fa-linkedin-in"></i> Milo Nagata</a
-                >
-              </div>
+              </iframe>
             </div>
-            <div class="footer-copy">2026 — Milo Nagata</div>
+            <div class="project-meta">2026</div>
+            <h3 class="project-title">Field // Immersive 3D Environment</h3>
+            <p class="project-description">
+              An open-world atmospheric environment built in Unity, exploring
+              procedural terrain generation and real-time lighting. The project
+              focuses on creating a sense of scale and solitude. Users can
+              traverse vast field or create their own, allowing visitors to into
+              their world to help them paint the landscapes.
+            </p>
+            <div class="project-tags">
+              <span>Unity</span><span>Environment Design</span
+              ><span>Procedural Generation</span><span>Real-time Lighting</span>
+            </div>
+            <a href="#" class="project-link">explore →</a>
           </div>
-        </footer>
-      </main>
+
+          <!-- Project 2: Journey -->
+          <div class="project-card">
+            <div class="project-media">
+              <iframe
+                id="journeyVideo"
+                class="project-video"
+                src="https://player.vimeo.com/video/1188778181?controls=0&title=0&byline=0&portrait=0&playsinline=1&loop=1&muted=1"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+            <div class="project-meta">2024</div>
+            <h3 class="project-title">Journey // Immersive 3D Environment</h3>
+            <p class="project-description">
+              A narrative-driven 3D environment that guides the viewer through
+              surreal, dreamlike landscapes. Built with Unity, this piece blends
+              exploration with subtle storytelling elements: Expansive deserts,
+              lush forests, and stunning tori. The environment reacts to player
+              proximity, revealing hidden sounds.
+            </p>
+            <div class="project-tags">
+              <span>Unity</span><span>Environmental Storytelling</span
+              ><span>Shader Graph</span><span>Atmospheric Design</span>
+            </div>
+            <a href="#" class="project-link">explore →</a>
+          </div>
+
+          <!-- Project 3: Deep Web -->
+          <div class="project-card">
+            <div class="project-media">
+              <iframe
+                class="project-video"
+                src="https://mllord.github.io/assignment3/"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+            <div class="project-meta">2025</div>
+            <h3 class="project-title">
+              Deep Web // Z-Axis Interactive Website
+            </h3>
+            <p class="project-description">
+              An interactive website that explores the layers of the internet
+              from a vertical perspective. Scrolling reveals different depths of
+              network infrastructure, from surface web content down to server
+              protocols. Built with custom CSS scroll-snap and JavaScript
+              intersection observers to create a seamless Z-axis storytelling
+              experience. The site visualizes how data travels through physical
+              hardware, code, and user interfaces.
+            </p>
+            <div class="project-tags">
+              <span>HTML</span><span>CSS</span><span>JS</span
+              ><span>Scroll‑Snap</span><span>Intersection Observer</span
+              ><span>Data Visualization</span>
+            </div>
+            <a href="#" class="project-link">explore →</a>
+          </div>
+
+          <!-- Project 4: Fluid Simulation (NEW) -->
+          <div class="project-card">
+            <div class="project-media">
+              <iframe
+                id="fluidVideo"
+                class="project-video"
+                src="https://player.vimeo.com/video/1188780094?controls=0&title=0&byline=0&portrait=0&playsinline=1&loop=1&muted=1"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+            <div class="project-meta">2025</div>
+            <h3 class="project-title">Fluid Simulation // Touch Designer</h3>
+            <p class="project-description">
+              A real-time hand tracking fluid simulator built in TouchDesigner.
+              The system responds to hand gestures and audio input, creating
+              evolving, mirrored fluid patterns that shift with sound intensity.
+              The interface remains minimalist and reflective, allowing the
+              flowing simulations to take center stage. Gesture recognition
+              enables unique interactions — users can direct, split, and merge
+              fluid streams with simple hand movements. The project explores
+              synesthetic perception, where the auditory and visual senses merge
+              into a seamless feedback loop.
+            </p>
+            <div class="project-tags">
+              <span>Touch Designer</span><span>Hand Tracking</span
+              ><span>Real-time Graphics</span><span>Audio-Reactive</span
+              ><span>Interactive Art</span>
+            </div>
+            <a href="#" class="project-link">explore →</a>
+          </div>
+
+          <!-- Project 5: Character Concept with buttons -->
+          <div class="project-card">
+            <div class="project-media">
+              <iframe
+                id="characterVideo"
+                class="project-video"
+                src="https://player.vimeo.com/video/1188774130?controls=0&title=0&byline=0&portrait=0&playsinline=1&loop=0&muted=1"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
+              >
+              </iframe>
+              <button class="char-prev" aria-label="Previous video">‹</button>
+              <button class="char-next" aria-label="Next video">›</button>
+            </div>
+            <div class="project-meta">2025</div>
+            <h3 class="project-title">
+              Character Concept // Concept Design for Characters
+            </h3>
+            <p class="project-description">
+              A series of original character designs realized in Clip Studio
+              Paint, focusing on expressive silhouettes, cultural fusion, and
+              narrative backstories. Each character is explored through
+              turnaround sheets, emotion studies, and environment interaction
+              sketches. The project emphasizes line weight, color psychology,
+              and costume functionality.
+            </p>
+            <div class="project-tags">
+              <span>Clip Studio Paint</span><span>Character Design</span
+              ><span>Concept Art</span><span>Visual Development</span>
+            </div>
+            <a href="#" class="project-link">explore →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bio-section">
+        <h2 class="bio-heading">Bio</h2>
+        <p class="bio-text">
+          I’m an Australian-Japanese 3D designer focused on creating immersive
+          game worlds and characters. I work across both character and
+          environment design, using tools such as Blender, Maya, Unity, and
+          Unreal Engine to build detailed, interactive assets that bring digital
+          spaces to life.
+        </p>
+        <p class="bio-text">
+          My practice is driven by world-building, crafting environments and
+          characters that feel cohesive, atmospheric, and grounded within a
+          larger narrative. From stylised assets to more realistic forms, I aim
+          to balance strong visual design with technical execution, ensuring my
+          work translates effectively into real-time engines.
+        </p>
+        <p class="bio-text">
+          I approach every project with a results-driven mindset, combining
+          creativity with discipline to see ideas through from concept to
+          completion. Constantly refining my skills and exploring new
+          techniques, I’m focused on pushing the quality of my work while
+          contributing meaningfully to game development teams.
+        </p>
+      </div>
+
+      <div class="portfolio-footer">
+        <div class="footer-links">
+          <span class="footer-separator">✦</span>
+          <a href="mailto:milonagata@gmail.com" class="footer-email"
+            >milonagata@gmail.com</a
+          >
+          <span class="footer-separator">✦</span>
+          <a
+            href="https://www.linkedin.com/in/milonagata/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-linkedin"
+            >LinkedIn</a
+          ><span class="footer-separator">✦</span>
+        </div>
+        <p class="footer-copy">
+          <span class="footer-separator">✦</span> Open for collaborations
+          <span class="footer-separator">✦</span>
+          <br /><br />
+          © 2026 Milo Nagata - All Rights Reserved
+        </p>
+      </div>
     </div>
 
+    <a href="#top" class="top2"> > </a>
+    <div class="cursor"></div>
+    <canvas id="trailCanvas"></canvas>
     <script src="script.js"></script>
   </body>
 </html>
