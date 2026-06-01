@@ -6,21 +6,18 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>Milo Nagata — Project Deep Dive</title>
+    <title>Milo Nagata — Seeds of Memories: Process</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap"
       rel="stylesheet"
     />
-    <!-- Your original main styles (unchanged) -->
     <link rel="stylesheet" href="styles.css" />
-    <!-- Case-study layout only – no typography overrides -->
     <link rel="stylesheet" href="case-study.css" />
     <script src="https://player.vimeo.com/api/player.js"></script>
   </head>
   <body>
-    <!-- BACKGROUND VIDEO -->
     <div id="VideoBG">
       <iframe
         id="mainBgVideo"
@@ -33,7 +30,6 @@
       ></iframe>
     </div>
 
-    <!-- floating letters -->
     <div class="M">M</div>
     <div class="T1">T</div>
     <div class="T2">T</div>
@@ -44,23 +40,24 @@
         <a href="index.html" class="back-link">← BACK TO PORTFOLIO</a>
       </div>
 
-      <!-- ========== EDIT THIS SECTION FOR EACH PROJECT ========== -->
+      <!-- ========== PROJECT CONTENT – SEEDS OF MEMORIES ========== -->
       <div class="project-hero">
-        <div class="project-eyebrow">CASE STUDY / PROCESS</div>
+        <div class="project-eyebrow">CASE STUDY / TECHNICAL DEVELOPMENT</div>
         <h1 class="project-title" id="dynamicTitle">
-          Field // Immersive 3D Environment
+          Seeds of Memories // Immersive Flower Field
         </h1>
         <div class="project-meta">
-          <span class="meta-item">📅 2026</span>
-          <span class="meta-item">🏷️ Environment Design</span>
-          <span class="meta-item">⚙️ Unity · HDRP</span>
+          <span class="meta-item">2026</span>
+          <span class="meta-item">Interactive Environment</span>
+          <span class="meta-item">Unity · C# · Shaders</span>
         </div>
       </div>
 
       <div class="project-media-full">
+        <!-- UPDATED VIDEO: new Vimeo ID 1197203634 -->
         <iframe
           id="mainProjectVideo"
-          src="https://player.vimeo.com/video/1188777905?controls=1&title=0&byline=0&portrait=0&playsinline=1&loop=1&muted=1"
+          src="https://player.vimeo.com/video/1197203634?controls=1&title=0&byline=0&portrait=0&playsinline=1&loop=1&muted=1"
           frameborder="0"
           allow="autoplay; fullscreen; picture-in-picture"
           allowfullscreen
@@ -70,78 +67,146 @@
       <div class="process-section">
         <div class="section-label-light">CONCEPT & VISION</div>
         <p class="concept-text">
-          An open-world atmospheric environment built in Unity, exploring
-          procedural terrain generation and real-time lighting. The project
-          focuses on creating a sense of scale and solitude.
+          An immersive, two‑minute interactive experience where a player walks
+          through a vast flower field, leaving behind a trail of colour. Ghost
+          visitors – echoes of previous players – appear and interact, creating
+          a growing, chaotic ecosystem of colour and memory. The world resets
+          after each session, but the traces of past visitors linger.
         </p>
       </div>
 
       <div class="process-section">
-        <div class="section-label-light">BEHIND THE SCENES / PROCESS</div>
+        <div class="section-label-light">
+          MY ROLE: TECHNICAL DEVELOPMENT & SYSTEM INTEGRATION
+        </div>
         <div class="process-grid">
           <div class="process-card">
             <div class="step-number">01</div>
-            <h3>Concept & References</h3>
+            <h3>Integrating Two Prototypes</h3>
             <p>
-              Gathered aerial references, color palettes from Nordic regions,
-              sketched macro composition.
+              Merged separate interaction systems from earlier prototypes into
+              one cohesive Unity project. Resolved conflicts between
+              colour‑trail mechanics, visitor spawning, and environmental
+              behaviours.
             </p>
             <div class="tools-badge">
-              <span>Mood boards</span><span>PureRef</span>
+              <span>Unity</span><span>C#</span><span>GitHub</span>
             </div>
           </div>
           <div class="process-card">
             <div class="step-number">02</div>
-            <h3>Terrain Generation</h3>
+            <h3>Flower Shader Optimisation</h3>
             <p>
-              Procedural terrain using Unity Terrain Tools + custom noise
-              shaders with runtime erosion.
+              Rewrote the flower shader to support hundreds of flowers
+              simultaneously without performance drops. Used batching and
+              simplified materials to maintain smooth framerates.
             </p>
             <div class="tools-badge">
-              <span>Unity Terrain</span><span>Shader Graph</span>
+              <span>Shader Graph</span><span>Performance Profiling</span>
             </div>
           </div>
           <div class="process-card">
             <div class="step-number">03</div>
-            <h3>Lighting & Atmosphere</h3>
+            <h3>Ghost Visitor System</h3>
             <p>
-              HDRP volume system with dynamic time-of-day, volumetric fog, and
-              real-time reflections.
+              Designed the logic for spawning ghost visitors when colour stages
+              are activated. Implemented chain‑spawning – touching visitors
+              generates more – and added colour highlights to clarify
+              interaction.
             </p>
             <div class="tools-badge">
-              <span>HDRP</span><span>Volumetric fog</span>
+              <span>State Machines</span><span>Raycasting</span>
             </div>
           </div>
           <div class="process-card">
             <div class="step-number">04</div>
-            <h3>Optimization & Polish</h3>
+            <h3>Dynamic Flower Growth</h3>
             <p>
-              LOD system, occlusion culling, custom shaders – stable 60fps on
-              mid-range hardware.
+              Created a system where flowers grow outside the original field
+              based on player movement trail. Added a short delay before
+              enabling colliders to prevent unintended spawning inside the
+              field.
             </p>
             <div class="tools-badge">
-              <span>C#</span><span>LOD Groups</span>
+              <span>Collision Detection</span><span>Coroutines</span>
             </div>
           </div>
         </div>
       </div>
 
       <div class="insight-block">
-        💡 “The biggest challenge was balancing procedural variety with curated
-        storytelling. Solved with custom noise masks blending handmade
-        landmarks.”
+        “Every time we added something new – dynamic flower growth,
+        chain‑spawning clones, the bird's‑eye camera – something else would
+        break. Optimising the flower shader was a small victory; watching
+        hundreds of flowers run smoothly after struggling with performance felt
+        like real progress.”
       </div>
 
       <div class="process-section">
-        <div class="section-label-light">TOOLS & RESOURCES</div>
-        <div class="toolkit-grid">
-          <span class="tool-pill">Unity 2022 LTS</span>
-          <span class="tool-pill">HDRP</span>
-          <span class="tool-pill">Blender</span>
-          <span class="tool-pill">Substance Painter</span>
+        <div class="section-label-light">CHALLENGES & SOLUTIONS</div>
+        <div class="process-grid">
+          <div class="process-card">
+            <h3>Performance Issues</h3>
+            <p>
+              Temporarily removed flower swaying, bending, glow effects, and
+              fireflies to reduce lag. Prioritised stability over visual polish.
+            </p>
+          </div>
+          <div class="process-card">
+            <h3>Unclear Visitor Interaction</h3>
+            <p>
+              Players didn't understand that touching visitors activated new
+              ones. Added colour highlights to newly spawned visitors, which
+              faded after interaction to signal activation.
+            </p>
+          </div>
+          <div class="process-card">
+            <h3>Restricted Field Boundaries</h3>
+            <p>
+              Players felt boxed in by the square boundary. Redesigned the field
+              as a circular area with natural fade‑out using sphere colliders
+              and density falloff.
+            </p>
+          </div>
+          <div class="process-card">
+            <h3>Version Control Woes</h3>
+            <p>
+              Repeated file‑zipping caused conflicts. Set up a shared GitHub
+              repository to track changes and avoid overwriting work.
+            </p>
+          </div>
         </div>
       </div>
-      <!-- ========== END EDITABLE SECTION ========== -->
+
+      <div class="process-section">
+        <div class="section-label-light">TOOLS & TECHNIQUES USED</div>
+        <div class="toolkit-grid">
+          <span class="tool-pill">Unity 2022 LTS</span>
+          <span class="tool-pill">C# (events, coroutines)</span>
+          <span class="tool-pill">Shader Graph</span>
+          <span class="tool-pill">GitHub for collaboration</span>
+          <span class="tool-pill">Unity Profiler</span>
+          <span class="tool-pill">Sphere colliders / exclusion zones</span>
+        </div>
+      </div>
+
+      <div class="process-section">
+        <div class="section-label-light">FINAL REFLECTION</div>
+        <p class="concept-text" style="max-width: 100%">
+          Looking back, I'm shocked by how much development became a constant
+          negotiation between ambition and technical stability. Integrating two
+          prototypes was harder than I expected – every new feature risked
+          breaking something else. But removing the glow effects and fireflies
+          was the right call; stability first. The ghost visitor system taught
+          me to stop assuming players will just "get it". Watching real people
+          play revealed gaps I'd never have seen alone. If I were doing this
+          again, I'd start version control on day one – GitHub saved us hours of
+          headaches. The ending zoom‑out sequence gave the experience a clear
+          finish. Overall, I'm proud of what we built, even if the path was
+          messier than I expected.
+        </p>
+      </div>
+      <!-- ========== END OF PROJECT CONTENT ========== -->
 
       <div class="portfolio-footer">
         <div class="footer-links">
