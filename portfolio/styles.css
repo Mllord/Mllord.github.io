@@ -774,3 +774,14 @@ canvas {
     max-width: 100%;
   }
 }
+
+/* Prevent back link from turning blue after click */
+.back-link,
+.back-link:visited {
+  color: #ddd;
+}
+.back-link:hover,
+.back-link:visited:hover {
+  color: white;
+  border-bottom-color: white;
+}

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Milo Nagata — QR Codes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- tiny extra styling just for the QR page grid – does not affect global styles -->
+    <style>
+      .qr-page-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 4rem;
+        backdrop-filter: blur(2px);
+        position: relative;
+        z-index: 10;
+      }
+      .qr-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .qr-header h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        padding-top: 2rem;
+      }
+      .qr-header p {
+        color: #ccc;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .qr-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 2rem;
+        justify-items: center;
+        align-items: start;
+        margin-top: 2rem;
+      }
+      .qr-card {
+        background: rgba(10, 10, 10, 0.65);
+        backdrop-filter: blur(8px);
+        border-radius: 28px;
+        padding: 1.5rem;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s;
+        width: 100%;
+        max-width: 240px;
+      }
+      .qr-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+      .qr-code-img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: contain;
+        background: white;
+        padding: 0.75rem;
+        border-radius: 18px;
+        margin-bottom: 1rem;
+      }
+      .qr-label {
+        font-family: "Encode Sans Expanded", monospace;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #ddd;
+        margin-top: 0.5rem;
+      }
+      .qr-description {
+        font-size: 0.75rem;
+        color: #aaa;
+        margin-top: 0.25rem;
+      }
+      .back-link-qr {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: "Encode Sans Expanded", monospace;
+        font-weight: 400;
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+        text-decoration: none;
+        color: #ddd;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        padding-bottom: 0.25rem;
+        margin-bottom: 2rem;
+        transition: 0.2s;
+      }
+      .back-link-qr:hover {
+        color: white;
+        border-bottom-color: white;
+        transform: translateX(-4px);
+      }
+      @media (max-width: 640px) {
+        .qr-grid {
+          gap: 1.2rem;
+        }
+        .qr-card {
+          max-width: 200px;
+        }
+      }
+    </style>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  </head>
+  <body>
+    <!-- BACKGROUND VIDEO (same as main site) -->
+    <div id="VideoBG">
+      <iframe
+        id="mainBgVideo"
+        class="bg-vimeo-iframe"
+        src="https://player.vimeo.com/video/1188803562?background=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1&autoplay=1"
+        title="Main background"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <!-- floating letters (brand) -->
+    <div class="M">M</div>
+    <div class="T1">T</div>
+    <div class="T2">T</div>
+    <div class="N">N</div>
+
+    <div class="qr-page-container">
+      <!-- back navigation to main portfolio -->
+      <div>
+        <a href="index.html" class="back-link-qr">← BACK TO PORTFOLIO</a>
+      </div>
+
+      <div class="qr-header">
+        <h1>QR CODES</h1>
+        <p></p>
+      </div>
+
+      <div class="qr-grid">
+        <!-- QR Card 1: Email / Contact -->
+        <div class="qr-card">
+          <img
+            class="qr-code-img"
+            src="ResumeQR.png"
+            alt="QR code for email"
+            onerror="this.src = ''"
+          />
+          <div class="qr-label">Resume</div>
+          <div class="qr-description">milonagata@gmail.com</div>
+        </div>
+
+        <!-- QR Card 2: LinkedIn Profile -->
+        <div class="qr-card">
+          <img
+            class="qr-code-img"
+            src="LinkedinQR.png"
+            alt="QR code for LinkedIn"
+            onerror=""
+          />
+          <div class="qr-label">LINKEDIN</div>
+          <div class="qr-description">Milo Nagata profile</div>
+        </div>
+
+        <!-- QR Card 3: Seeds of Memories Project -->
+        <div class="qr-card">
+          <img
+            class="qr-code-img"
+            src="WebsiteQR.png"
+            alt="QR code for Seeds of Memories"
+            onerror="this.src = ''"
+          />
+          <div class="qr-label">Portfolio</div>
+          <div class="qr-description">This Website</div>
+        </div>
+      </div>
+
+      <!-- footer (same style as main) -->
+      <div class="portfolio-footer" style="margin-top: 4rem">
+        <div class="footer-links">
+          <span class="footer-separator">✦</span>
+          <a href="mailto:milonagata@gmail.com" class="footer-email"
+            >milonagata@gmail.com</a
+          >
+          <span class="footer-separator">✦</span>
+          <a
+            href="https://www.linkedin.com/in/milonagata/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-linkedin"
+            >LinkedIn</a
+          >
+          <span class="footer-separator">✦</span>
+        </div>
+        <p class="footer-copy">
+          <span class="footer-separator">✦</span> Open for collaborations
+          <span class="footer-separator">✦</span><br /><br />
+          © 2026 Milo Nagata - All Rights Reserved
+        </p>
+      </div>
+    </div>
+
+    <a href="#" class="top2"> > </a>
+    <div class="cursor"></div>
+    <canvas id="trailCanvas"></canvas>
+
+    <script src="script.js"></script>
+  </body>
+</html>
