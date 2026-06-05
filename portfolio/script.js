@@ -112,7 +112,8 @@ function initCharacterCycling() {
   const characterIframe = document.getElementById("characterVideo");
   if (!characterIframe) return;
 
-  const videoIds = ["1188774130", "1188774148", "1188787674"];
+  // Updated video order: new video first, then original first, then original second
+  const videoIds = ["1198912252", "1188774130", "1188774148"];
   let currentIndex = 0;
   let characterPlayer = null;
   let isHovered = false;
